@@ -39,7 +39,7 @@ w.r.t. 8.5 (not taking into account plugin interfaces)
  are less likely to forget that there are potentially local definitions
  and not only declarations in these contexts.
 
-- [ ] :exclamation: PR [[https://github.com/coq/coq/pull/143|#143]] now [[https://github.com/coq/coq/pull/179|#179]]: Feedback/pp cleanup (E. J. Gallego)
+- [ ] :exclamation: PR coq/coq#143 now coq/coq#179: Feedback/pp cleanup (E. J. Gallego)
    [EJGA] I should be able to get this in shape for 8.6.
    [EJGA] Done
    
