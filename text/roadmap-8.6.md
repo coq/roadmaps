@@ -26,12 +26,12 @@ account plugin interfaces)
  to rename files in our codebase whose names are conflicting 
  with the compiler-libs library of the ocaml compiler.
 
- * Bytes/String PR by E. Arias. WIP, proposal is to split it in smaller
+- [ ] Bytes/String PR by E. Arias. WIP, proposal is to split it in smaller
   chunks and do renamings.
 
    [EGJA] A few minor parts should be able to go into 8.6 IMHO. Personally, I would just postpone the rest until 4.02 is the default compiler to avoid shipping more compatibility burden.
 
- * M. Kosik implemented the move to Context.Rel/Named for manipulating
+- [ ] M. Kosik implemented the move to Context.Rel/Named for manipulating
  named and de Bruijn contexts using an algebraic datatype distinguishing
  declarations and definitions and modules with a similar interface. This
  will break plugins but the move to the new representation is really
@@ -39,7 +39,7 @@ account plugin interfaces)
  are less likely to forget that there are potentially local definitions
  and not only declarations in these contexts.
 
-* ! PR [[https://github.com/coq/coq/pull/143|#143]] now [[https://github.com/coq/coq/pull/179|#179]]: Feedback/pp cleanup (E. J. Gallego)
+- [ ] ! PR [[https://github.com/coq/coq/pull/143|#143]] now [[https://github.com/coq/coq/pull/179|#179]]: Feedback/pp cleanup (E. J. Gallego)
    [EJGA] I should be able to get this in shape for 8.6.
    [EJGA] Done
    
@@ -49,7 +49,7 @@ account plugin interfaces)
  PRs breaking contribs.
  Decision: merged.
 
- * PR [[https://github.com/coq/coq/pull/158|#158]]: Fixing the
+- [ ] PR [[https://github.com/coq/coq/pull/158|#158]]: Fixing the
    "beautifier" and checking the parsing-printing reversibility
    (H. Herbelin)
 
@@ -58,54 +58,54 @@ account plugin interfaces)
 
  Decision: ok, with configure option to activating/deactivating.
 
- * PR [[https://github.com/coq/coq/pull/86|#86]]: simplify sort_fields
+- [ ] PR [[https://github.com/coq/coq/pull/86|#86]]: simplify sort_fields
    (G. Sherer)
  Decision: cleanup without parsing rule and merge.
 
- * ! PR [[[[https://github.com/coq/coq/pull/117|#117]]: iota split into iota0+phi+psi and ML API cleanup for
+- [ ] ! PR [[[[https://github.com/coq/coq/pull/117|#117]]: iota split into iota0+phi+psi and ML API cleanup for
   reduction functions (H. Herbelin).
 
   Decision: Set iota to be match + fix + cofix at user level, preserving
   compatibility.
   No incompatibility at the ML level. Maxime and Hugo to work on the merge.
-  
- * New warning system.
+
+- [ ] New warning system.
  Decision: ok.
 
- * Flag deprecated commands: Add Setoid/Morphism/...?
+- [ ] Flag deprecated commands: Add Setoid/Morphism/...?
  Decision: deprecate.
 
- * Windows SDK built from sources using Michael's script (Enrico).
- * Error resilient mode for STM (Enrico) [[https://github.com/coq/coq/pull/173|#173]]
+- [ ] Windows SDK built from sources using Michael's script (Enrico).
+
+- [ ] Error resilient mode for STM (Enrico) [[https://github.com/coq/coq/pull/173|#173]]
  Decision: ok. Difference between coqc and coqide.
 
- * Compartimentalize IDE-API specific serialization in IDE (PR#180,
+- [x] Compartimentalize IDE-API specific serialization in IDE (PR#180,
  EJGA).
- Decision: merged.
 
- * Use -pack for plugins [EJGA: IMHO we should really push for this, it is not so hard but important]
- * [[https://github.com/coq/coq/pull/185|#185]] Remove unused printing infrastructure and duplication.
+- [ ] Use -pack for plugins
+- [ ] [[https://github.com/coq/coq/pull/185|#185]] Remove unused printing infrastructure and duplication.
    [EJGA] This is up to PMP/Enrico, I did this PR because the stuff is abandoned and it was indeed confusing people looking at it. It also saves 24K of bytecode and removes a duplicate code path.
 
 # Kernel
 
- * New universe cycle detection algorithm by J.H. Jourdan.
+- [x] New universe cycle detection algorithm by J.H. Jourdan.
  Much faster on typical graphs, implements a state-of-the-art incremental cycle
  detection algorithm by Bender, M. A., Fineman, J. T., Gilbert, S., &
  Tarjan, R. E.
       
- * Now accepting unit props in mutual definitions (B. Barras, 045b695)
+- [x] Now accepting unit props in mutual definitions (B. Barras, 045b695)
  Any change due to this? kernel/checker
 
- * Optimizations in the (lazy) reduction machine, saving allocations
+- [ ] Optimizations in the (lazy) reduction machine, saving allocations
 
 # Elaboration, Gallina
 
- * Ltac implementation refactoring, "Ltac as a plugin" (P.M. Pédrot).
+- [ ] Ltac implementation refactoring, "Ltac as a plugin" (P.M. Pédrot).
  Uniform handling of generic arguments.
 
   Incompatibilities:
-   * ! at the syntax level, when using constr:, ltac:
+  ! at the syntax level, when using constr:, ltac:
 	grammar entries in Ltac code, parentheses become mandatory
 	(e.g.: constr:((x, y)) for the pair of terms x y).
 	ipattern_list:([] []). Uniformity vs "non-uglyness".
@@ -116,22 +116,19 @@ account plugin interfaces)
   so we can evaluate the incompatibility better and in this case
   specialize constr:().
 
-   * At the level of ML: camlp4 quotations of ltac are no longer
+- [ ] At the level of ML: camlp4 quotations of ltac are no longer
   supported (<:ltac < auto with *>>)
   
  Some tactics and vernac entries were moved to 
  TACTIC EXTEND/VERNAC EXTEND thanks to the refactoring.
 
- * ML: API cleanup/changes for maps of existential variables and
+ - [ ] ML: API cleanup/changes for maps of existential variables and
   universes. pretyping/evd.ml was moved to engine/evd.ml and a new
   programming interface engine/sigma.ml is provided to statically ensure
   the state is used monotonously (using GADTs). namegen, termops,
   logic_monad, proofview_monad are also in engine.
 
- * Evar resolvability flag and naming are more efficiently handled now,
-  reducing memory usage in presence of large numbers of evars. MS: in 8.5pl1
-
- * ? Evar naming:
+- [ ] ? Evar naming:
 
   * Unnamed evars generated identifiers are not stable and shouldn't be 
   used to refer to evars (MS: can they? HH: in 8.5pl1, only the evars named using ?[x] or ?[?x] can be referred to).
@@ -150,7 +147,7 @@ account plugin interfaces)
 
   Note: {{{instantiate(n:=t)}}} is working in 8.5pl1 for user-named evars but not for coq-generated ones.
 
-  - Bug in compatibility checking.
+  * Bug in context compatibility checking.
 
   Many proposals:
   ltac:(let x := evar "e" T in exact (x + x))
@@ -158,13 +155,13 @@ account plugin interfaces)
 
   No decision really, timeout
 
- * Unification:
+## Unification:
 
-   *  Unification of Let-In bodies without unifying their types (in
+- [ ] Unification of Let-In bodies without unifying their types (in
 	evarconv heuristic of first-order unifications) (9cc95f5)
    Decision: unification, use cumulativity state leq.
 
- * Keyed Unification:
+- [ ] Keyed Unification:
 
   ! The strategy is now to do a first pass without conversion and
   a pass with full conversion of arguments if this fails, when
@@ -174,16 +171,16 @@ account plugin interfaces)
   Decision: ok.
   Follow the compat flag.  
 
- * Typeclasses:
+ ## Typeclasses:
 
-  * Option to add eta-unification during resolution.
-  * Option to do resolution following the dependency order of subgoals
+  - [ ] Option to add eta-unification during resolution.
+  - [ ] Option to do resolution following the dependency order of subgoals
   in resolution (previously, and by default, the most dependent ones
   are tried first, respecting the semantics of the previous proof engine).
-  * Option to switch to an iterative deepening search strategy.
+  - [ ] Option to switch to an iterative deepening search strategy.
   Should be renamed bfs.
   
-  * New implementation of typeclasses eauto based on new proof engine,
+  - [ ] New implementation of typeclasses eauto based on new proof engine,
   could replace eauto as well: full backtracking, Hint Cut supported,
   iterative deepening, limited search, ... (M. Sozeau) 
   [[https://github.com/mattam82/coq/commits/bteauto|branch]]. 
@@ -191,11 +188,7 @@ account plugin interfaces)
 
   Decision: ok. Compatibility with eauto?
   
- * PR [[https://github.com/coq/coq/pull/72|#72]] Quote coercions
- - Decision: not ready, needs redesign for hooks in the ML code so that
- this can become a plugin.
-
- * PR [[https://github.com/coq/coq/pull/142|#142]] Patterns in abstractions (D. de Rauglaudre)
+- [ ] PR [[https://github.com/coq/coq/pull/142|#142]] Patterns in abstractions (D. de Rauglaudre)
 
 # Vernacular
 
