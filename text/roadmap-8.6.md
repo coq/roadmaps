@@ -7,17 +7,17 @@ is incomplete, or which required more discussion/in-depth explanations
 
 The other items were agreed to be integrated in the next release at the last WG.
 
-! indicates changes introducing incompatibilities w.r.t. 8.5 (not taking into
-account plugin interfaces) 
+:exclamation: indicates changes introducing incompatibilities
+w.r.t. 8.5 (not taking into account plugin interfaces)
 
 # General Implementation
 
-- [x] ! We settled on requiring ocaml >= 4.01.0 for 8.6.
+- [x] We settled on requiring ocaml >= 4.01.0 for 8.6.
   There is a known issue with 4.01.0 and camlp4 where
   Coq compilation fails, this case is now detected early
   in the configure script.
 
-   [EJGA] Note that this will likely break Debian packages, as they ship a patched Ocaml 4.01.0 thus configure will fail.
+  [EJGA] Note that this will likely break Debian packages, as they ship a patched Ocaml 4.01.0 thus configure will fail.
  
 - [x] Switch to using ocamlfind for finding compilers (new dependency)
   
@@ -31,7 +31,7 @@ account plugin interfaces)
 
    [EGJA] A few minor parts should be able to go into 8.6 IMHO. Personally, I would just postpone the rest until 4.02 is the default compiler to avoid shipping more compatibility burden.
 
-- [ ] M. Kosik implemented the move to Context.Rel/Named for manipulating
+- [x] M. Kosik implemented the move to Context.Rel/Named for manipulating
  named and de Bruijn contexts using an algebraic datatype distinguishing
  declarations and definitions and modules with a similar interface. This
  will break plugins but the move to the new representation is really
@@ -39,7 +39,7 @@ account plugin interfaces)
  are less likely to forget that there are potentially local definitions
  and not only declarations in these contexts.
 
-- [ ] ! PR [[https://github.com/coq/coq/pull/143|#143]] now [[https://github.com/coq/coq/pull/179|#179]]: Feedback/pp cleanup (E. J. Gallego)
+- [ ] :exclamation: PR [[https://github.com/coq/coq/pull/143|#143]] now [[https://github.com/coq/coq/pull/179|#179]]: Feedback/pp cleanup (E. J. Gallego)
    [EJGA] I should be able to get this in shape for 8.6.
    [EJGA] Done
    
@@ -62,7 +62,7 @@ account plugin interfaces)
    (G. Sherer)
  Decision: cleanup without parsing rule and merge.
 
-- [ ] ! PR [[[[https://github.com/coq/coq/pull/117|#117]]: iota split into iota0+phi+psi and ML API cleanup for
+- [ ] :exclamation: PR [[[[https://github.com/coq/coq/pull/117|#117]]: iota split into iota0+phi+psi and ML API cleanup for
   reduction functions (H. Herbelin).
 
   Decision: Set iota to be match + fix + cofix at user level, preserving
@@ -101,11 +101,11 @@ account plugin interfaces)
 
 # Elaboration, Gallina
 
-- [ ] Ltac implementation refactoring, "Ltac as a plugin" (P.M. Pédrot).
+- [ ] :exclamation: Ltac implementation refactoring, "Ltac as a plugin" (P.M. Pédrot).
  Uniform handling of generic arguments.
 
   Incompatibilities:
-  ! at the syntax level, when using constr:, ltac:
+   at the syntax level, when using constr:, ltac:
 	grammar entries in Ltac code, parentheses become mandatory
 	(e.g.: constr:((x, y)) for the pair of terms x y).
 	ipattern_list:([] []). Uniformity vs "non-uglyness".
@@ -161,9 +161,9 @@ account plugin interfaces)
 	evarconv heuristic of first-order unifications) (9cc95f5)
    Decision: unification, use cumulativity state leq.
 
-  - [ ] Keyed Unification:
+  - [ ] :exclamation: Keyed Unification:
 
-  ! The strategy is now to do a first pass without conversion and
+  The strategy is now to do a first pass without conversion and
   a pass with full conversion of arguments if this fails, when
   selecting subterms. Keyed Unification is still restricted to
   [unify_to_subterm], used by the standard rewrite only (M. Sozeau).
@@ -191,12 +191,12 @@ account plugin interfaces)
 
 # Vernacular
 
-- [ ] ! Forbiding "Require" inside modules and module types (Import is
-   fine) Users complain. Do we deprecate or not? We should say
-   something.
+- [ ] :exclamation: Forbiding "Require" inside modules and module
+   types (Import is fine) Users complain. Do we deprecate or not? We
+   should say something.
 
-   Decision: message with workaround (move outside module).
-   Still an incompatibility to 8.4.
+   Decision: message with workaround (move outside module).  Still an
+   incompatibility to 8.4.
 
 - [ ] Print Assumptions now prints axioms through inductive definitions (M. Lasson)
 
@@ -261,14 +261,15 @@ account plugin interfaces)
 
 # Tactics
 
-- [ ] ! double induction, which is deprecated (but not warned as such),
-  was improved by H. Herbelin, introducing an incompatibility (it succeeds
-  more often). Compatibility flag?
+- [ ] :exclamation: double induction, which is deprecated (but not
+  warned as such), was improved by H. Herbelin, introducing an
+  incompatibility (it succeeds more often). Compatibility flag?
+
   induction m, n = induction m ; destruct m
   double induction n m = elim n ; elim m.
   Decision: remove the double induction tactic.
 
-- [ ] ! invariants on (a, b, ...), intropattern for generalized cartesian products
+- [ ] :exclamation: invariants on (a, b, ...), intropattern for generalized cartesian products
   Stop autocompleting with ? (H. Herbelin)
   Used to: warning about more names, or less.
   Now: exact number of names.
@@ -276,10 +277,10 @@ account plugin interfaces)
 
   The error message could be improved?
 
-- [x] ! "Set Regular Subst Tactic" on by default, subst has a more
+- [x] :exclamation: "Set Regular Subst Tactic" on by default, subst has a more
    canonical strategy and can succeed more often.
  
- - [ ] ! congruence now uses build_selector from Equality (H. Herbelin)
+ - [ ] :exclamation: congruence now uses build_selector from Equality (H. Herbelin)
  Decision: ok, incompatibility on discriminate on dependent types.
 
  - [ ] Clearing on the fly
@@ -289,11 +290,11 @@ account plugin interfaces)
  the default for e.g. apply is not changeable even if more natural.
  the code is already merged using > for clearing explicitely.
 
- - [ ] ! Clear not failing when an hypothesis didn't exist in Ltac mode,
+ - [ ] :exclamation: Clear not failing when an hypothesis didn't exist in Ltac mode,
  now it does (only in strict mode?).
  Decision: ok.
 
- - [ ] ! contradiction (H. Herbelin)
+ - [ ] :exclamation: contradiction (H. Herbelin)
  Adds incompatibility: more success. ~ True and ~ (x = x), part of [easy].
  Decision: ok. Compatibility issue.
 
@@ -311,13 +312,13 @@ account plugin interfaces)
  Decision: take 1st part, document it in refman (associativity).
  Do not allow ?[x].
 
-- [ ] ! PR [[https://github.com/coq/coq/pull/100|#100]]: fresh accepts more
+- [ ] :exclamation: PR [[https://github.com/coq/coq/pull/100|#100]]: fresh accepts more
  things (P. Courtieu) fresh will succeed more often=incompatibilies.
  Are these incompatibilites difficult to fix? Nobody should rely on it,
  (is_constr, is_var, ...)
  Decision: ok with review by Pierre-Marie.
 
-- [ ] ! PR [[https://github.com/coq/coq/pull/140|#140]]: Iff as a proper
+- [ ] :exclamation: PR [[https://github.com/coq/coq/pull/140|#140]]: Iff as a proper
   connective (H. Herbelin)
 
   Problem of coercions. Compatibility issue..
@@ -334,7 +335,7 @@ account plugin interfaces)
   Decision: in 8.6. No incompatibility, accept that its incomplete on
   backtracking, as a debug feature.
 
-- [ ] ?! injection as ([intropattern]): changed? Compatibility is not
+- [ ] :exclamation: injection as ([intropattern]): changed? Compatibility is not
   guaranteed here (H. Herbelin).
   What changed? Postponed to June 1st.
 
@@ -351,7 +352,7 @@ account plugin interfaces)
 
    - 
 
-- [ ] ! Properly handle Hint Extern with conclusions of the form
+- [ ] :exclamation: Properly handle Hint Extern with conclusions of the form
    _ -> _" in typeclass resolution (M. Sozeau)
    This breaks compatibility, these Hint Externs were not
    found before as the pattern was matched on the conclusion of the
@@ -366,18 +367,22 @@ account plugin interfaces)
   No problem a priori.
   Decision: if we have time to evaluate before June 15th.
 
-- [ ] ! Remove some atomic tactics from the AST. This breaks "intro" in strict mode (i.e. Ltac := ...) by forcing its argument to have been defined beforehand, e.g. "intro x" is rejected and should be turned into "let x := fresh in intro x" (or similar).
+- [ ] :exclamation: Remove some atomic tactics from the AST. This
+  breaks "intro" in strict mode (i.e. Ltac := ...) by forcing its
+  argument to have been defined beforehand, e.g. "intro x" is rejected
+  and should be turned into "let x := fresh in intro x" (or similar).
 
-- [ ] ! Force "let rec" Ltac to be a thunk, e.g. "let rec x := idtac" is forbidden and should be turned into "let rec x _ := idtac".
+- [ ] :exclamation: Force "let rec" Ltac to be a thunk, e.g. "let rec x := idtac" is forbidden and should be turned into "let rec x _ := idtac".
 
 # Standard Library
 
-- [ ] ! Changes in QArith/Qcanon,Qcabs by P. Letouzey with minor incompatibilities
+- [ ] :exclamation: Changes in QArith/Qcanon,Qcabs by P. Letouzey with minor incompatibilities
    Decision: Lemma additions, minor incompatibilities
    
 - [ ] Introduction of MMaps
 
-- [x] ! nil, cons, None and Some have their type argument set maximally implicit.
+- [x] :exclamation: nil, cons, None and Some have their type argument
+  set maximally implicit.
  Incompatibility should be clearly mentionned.
  
 - [ ] function_scope is now declared in Notations and bound to Funclass.
