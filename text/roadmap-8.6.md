@@ -331,7 +331,7 @@ w.r.t. 8.5 (not taking into account plugin interfaces)
   Decision: ok. Documentation of the ltac and advertisement.
 
 
-- [ ] PR [[https://github.com/coq/coq/pull/150|#150]]: LtacProf (trunk) (J. Gross, P. Steckler)
+- [ ] PR [[https://github.com/coq/coq/pull/150|#150]]: LtacProf (trunk) (T. Tebbi, J. Gross, P. Steckler)
   Decision: in 8.6. No incompatibility, accept that its incomplete on
   backtracking, as a debug feature.
 
