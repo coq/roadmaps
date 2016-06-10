@@ -1,43 +1,29 @@
 The purpose of this page is to summarize the different new features and
 modifications that are going to be part of Coq 8.6.
 
-? indicates points which were not discussed/undecided/whose description
-is incomplete, or which required more discussion/in-depth explanations 
-(at the time of the last WG).
+:question: indicates points which were not discussed/undecided/whose description
+is incomplete, or which required more discussion/in-depth explanations.
 
-The other items were agreed to be integrated in the next release at the last WG.
+The other items were agreed to be integrated in the next release
+during the last working group and implementors workshop.
 
 :exclamation: indicates changes introducing incompatibilities
-w.r.t. 8.5 (not taking into account plugin interfaces)
+w.r.t. 8.5
 
 # General Implementation
-
-- [x] We settled on requiring ocaml >= 4.01.0 for 8.6.
-  There is a known issue with 4.01.0 and camlp4 where
-  Coq compilation fails, this case is now detected early
-  in the configure script.
-
-  [EJGA] Note that this will likely break Debian packages, as they ship a patched Ocaml 4.01.0 thus configure will fail.
  
-- [x] Switch to using ocamlfind for finding compilers (new dependency)
-  
-- [ ] Module name conflicts with the ocaml compiler.
- While waiting for an upstream solution, we decided
- to rename files in our codebase whose names are conflicting 
- with the compiler-libs library of the ocaml compiler.
+- [ ] ML: API cleanup/changes for maps of existential variables and
+  universes (P.-M. Pédrot)
+
+  pretyping/evd.ml was moved to engine/evd.ml and a new
+  programming interface engine/sigma.ml is provided to statically ensure
+  the state is used monotonously (using GADTs). namegen, termops,
+  logic_monad, proofview_monad are also in engine.
 
 - [ ] Bytes/String PR by E. Arias. WIP, proposal is to split it in smaller
   chunks and do renamings.
 
    [EGJA] A few minor parts should be able to go into 8.6 IMHO. Personally, I would just postpone the rest until 4.02 is the default compiler to avoid shipping more compatibility burden.
-
-- [x] M. Kosik implemented the move to Context.Rel/Named for manipulating
- named and de Bruijn contexts using an algebraic datatype distinguishing
- declarations and definitions and modules with a similar interface. This
- will break plugins but the move to the new representation is really
- straightforward.  An advantage of the new representation is that users
- are less likely to forget that there are potentially local definitions
- and not only declarations in these contexts.
 
 - [x] :exclamation: [PR#179](https://github.com/coq/coq/pull/179):
   Feedback/pp cleanup (E. J. Gallego)
@@ -55,14 +41,6 @@ w.r.t. 8.5 (not taking into account plugin interfaces)
    (G. Sherer)
  Decision: cleanup without parsing rule and merge.
 
-- [ ] :exclamation: [PR#117](https://github.com/coq/coq/pull/117):
-  iota split into iota0+phi+psi and ML API cleanup for reduction
-  functions (H. Herbelin).
-
-  Decision: Set iota to be match + fix + cofix at user level, preserving
-  compatibility.
-  No incompatibility at the ML level. Maxime and Hugo to work on the merge.
-
 - [ ] New warning system (P.-M. Pédrot and M. Dénès)
 
 - [ ] Flag deprecated commands: Add Setoid/Morphism/...?
@@ -77,10 +55,32 @@ w.r.t. 8.5 (not taking into account plugin interfaces)
 - [x] [PR#180](https://github.com/coq/coq/pull/180):
   Compartimentalize IDE-API specific serialization in IDE (E. J. Gallego)
 
-- [ ] Use -pack for plugins
-- [ ] [PR#185](https://github.com/coq/coq/pull/185|#185)
+- [ ] :question: [PR#185](https://github.com/coq/coq/pull/185|#185)
    Remove unused printing infrastructure and duplication (E. J. Gallego)
-   [EJGA] This is up to PMP/Enrico, I did this PR because the stuff is abandoned and it was indeed confusing people looking at it. It also saves 24K of bytecode and removes a duplicate code path.
+
+  [EJGA] This is up to PMP/Enrico, I did this PR because the stuff is
+  abandoned and it was indeed confusing people looking at it. It also
+  saves 24K of bytecode and removes a duplicate code path.
+
+# Build infrastructure
+
+- [x] We settled on requiring ocaml >= 4.01.0 for 8.6.
+
+  There is a known issue with 4.01.0 and camlp4 where
+  Coq compilation fails with -debug, this case is now detected early
+  in the configure script.
+
+  [EJGA] Note that this will likely break Debian packages, as they ship a patched Ocaml 4.01.0 thus configure will fail.
+ 
+- [x] Switch to using ocamlfind for finding compilers (new dependency)
+ 
+- [ ] Use -pack for plugins shipped with Coq or compiled through coq_makefile (P. Letouzey)
+
+- [ ] Rename some modules to avoid conflicts with the ocaml compiler.
+
+While waiting for an upstream solution, we decided
+ to rename files in our codebase whose names are conflicting 
+ with the compiler-libs library of the ocaml compiler.
 
 # Kernel
 
@@ -92,9 +92,27 @@ w.r.t. 8.5 (not taking into account plugin interfaces)
 - [x] Now accepting unit props in mutual definitions (B. Barras, 045b695)
  Any change due to this? kernel/checker
 
+- [x] Cleaner interface for named/De-Bruijn contexts (M. Kosik)
+
+  Moved to Context.Rel/Named for manipulating
+  named and de Bruijn contexts using an algebraic datatype distinguishing
+  declarations and definitions and modules with a similar interface. This
+  will break plugins but the move to the new representation is really
+  straightforward.  An advantage of the new representation is that users
+  are less likely to forget that there are potentially local definitions
+  and not only declarations in these contexts.
+
 - [ ] Optimizations in the (lazy) reduction machine, saving allocations
 
-# Elaboration, Gallina
+- [ ] :exclamation: [PR#117](https://github.com/coq/coq/pull/117):
+  iota split into iota0+phi+psi and ML API cleanup for reduction
+  functions (H. Herbelin).
+
+  Decision: Set iota to be match + fix + cofix at user level, preserving
+  compatibility.
+  No incompatibility at the ML level. Maxime and Hugo to work on the merge.
+
+# Ltac
 
 - [ ] :exclamation: Ltac implementation refactoring, "Ltac as a plugin" (P.M. Pédrot).
  Uniform handling of generic arguments.
@@ -117,13 +135,12 @@ w.r.t. 8.5 (not taking into account plugin interfaces)
  Some tactics and vernac entries were moved to 
  TACTIC EXTEND/VERNAC EXTEND thanks to the refactoring.
 
- - [ ] ML: API cleanup/changes for maps of existential variables and
-  universes. pretyping/evd.ml was moved to engine/evd.ml and a new
-  programming interface engine/sigma.ml is provided to statically ensure
-  the state is used monotonously (using GADTs). namegen, termops,
-  logic_monad, proofview_monad are also in engine.
+# Gallina
 
-- [ ] ? Evar naming:
+- [ ] [PR#142](https://github.com/coq/coq/pull/142): Patterns in
+  abstractions (D. de Rauglaudre)
+
+- [ ] :question: Evar naming:
 
   * Unnamed evars generated identifiers are not stable and shouldn't be 
   used to refer to evars (MS: can they? HH: in 8.5pl1, only the evars named using ?[x] or ?[?x] can be referred to).
@@ -150,40 +167,37 @@ w.r.t. 8.5 (not taking into account plugin interfaces)
 
   No decision really, timeout
 
-  ## Unification:
+# Unification:
 
-  - [ ] Unification of Let-In bodies without unifying their types (in
-	evarconv heuristic of first-order unifications) (9cc95f5)
-   Decision: unification, use cumulativity state leq.
+- [ ] Unification of Let-In bodies without unifying their types (in
+evarconv heuristic of first-order unifications) (9cc95f5)
+ Decision: unification, use cumulativity state leq.
 
-  - [ ] :exclamation: Keyed Unification:
+- [ ] :exclamation: Keyed Unification:
 
-  The strategy is now to do a first pass without conversion and
-  a pass with full conversion of arguments if this fails, when
-  selecting subterms. Keyed Unification is still restricted to
-  [unify_to_subterm], used by the standard rewrite only (M. Sozeau).
+The strategy is now to do a first pass without conversion and
+a pass with full conversion of arguments if this fails, when
+selecting subterms. Keyed Unification is still restricted to
+[unify_to_subterm], used by the standard rewrite only (M. Sozeau).
 
-  Decision: ok.
-  Follow the compat flag.  
+Decision: ok.
+Follow the compat flag.  
 
-  ## Typeclasses:
+# Typeclasses:
 
-  - [ ] Option to add eta-unification during resolution.
-  - [ ] Option to do resolution following the dependency order of subgoals
-  in resolution (previously, and by default, the most dependent ones
-  are tried first, respecting the semantics of the previous proof engine).
-  - [ ] Option to switch to an iterative deepening search strategy.
-  Should be renamed bfs.
-  
-  - [ ] New implementation of typeclasses eauto based on new proof engine,
-  could replace eauto as well: full backtracking, Hint Cut supported,
-  iterative deepening, limited search, ... (M. Sozeau) 
-  [[https://github.com/mattam82/coq/commits/bteauto|branch]]. 
-  To be turned into a PR, compatibility checks to do first.
-  Decision: ok. Compatibility with eauto?
-  
-- [ ] PR#142(https://github.com/coq/coq/pull/142): Patterns in
-  abstractions (D. de Rauglaudre)
+- [ ] Option to add eta-unification during resolution.
+- [ ] Option to do resolution following the dependency order of subgoals
+in resolution (previously, and by default, the most dependent ones
+are tried first, respecting the semantics of the previous proof engine).
+- [ ] Option to switch to an iterative deepening search strategy.
+Should be renamed bfs.
+
+- [ ] New implementation of typeclasses eauto based on new proof engine,
+could replace eauto as well: full backtracking, Hint Cut supported,
+iterative deepening, limited search, ... (M. Sozeau) 
+[branch](https://github.com/mattam82/coq/commits/bteauto) 
+to be turned into a PR, compatibility checks to do first.
+Decision: ok. Compatibility with eauto?
 
 # Vernacular
 
@@ -194,7 +208,7 @@ w.r.t. 8.5 (not taking into account plugin interfaces)
    Decision: message with workaround (move outside module).  Still an
    incompatibility to 8.4.
 
-- [ ] Print Assumptions now prints axioms through inductive definitions (M. Lasson)
+- [x] Print Assumptions now prints axioms through inductive definitions (M. Lasson)
 
 - [ ] Deprecate non-qualified Requires ? Emitting a warning may be fine.
 
@@ -224,16 +238,17 @@ w.r.t. 8.5 (not taking into account plugin interfaces)
   Compatibility questions. Set it on and deprecate the flag (abstract is
   not specifying its proof term).
  
-- [ ] Universe binders @{} are now accepted by Program and Instance commands.
+- [x] Universe binders @{} are now accepted by Program and Instance commands.
   Locations of universe binders can be taken into account in error messages.
 
-- [ ] Support for (@foo) args in patterns, when @foo has no arguments (H. Herbelin).
+- [x] Support for (@foo) args in patterns, when @foo has no arguments (H. Herbelin).
 
 - [ ] @, abbreviations and notations are now interpreted in patterns
   like in terms (H. Herbelin).
     
 - [ ] [PR#156](https://github.com/coq/coq/pull/156) Coq-level numeral
  printers, now a CEP: [[CEP/Numeral Notation]] (D. de Rauglaudre)
+
  Discussion:
    P. Letouzey helped improve it.
    should be revised.
@@ -313,7 +328,7 @@ w.r.t. 8.5 (not taking into account plugin interfaces)
  (is_constr, is_var, ...)
  Decision: ok with review by Pierre-Marie.
 
-- [ ] :exclamation: PR#140(https://github.com/coq/coq/pull/140): Iff as a proper
+- [ ] :exclamation: [PR#140](https://github.com/coq/coq/pull/140): Iff as a proper
   connective (H. Herbelin)
 
   Problem of coercions. Compatibility issue..
@@ -334,18 +349,27 @@ w.r.t. 8.5 (not taking into account plugin interfaces)
   guaranteed here (H. Herbelin).
   What changed? Postponed to June 1st.
 
-- [ ] ? [PR#164](https://github.com/coq/coq/pull/164): A few tactics for
+- [ ] [PR#164](https://github.com/coq/coq/pull/164): A few tactics for
    8.6 (H. Herbelin)
    Discussion:
    H: it is stepwise additions, so next version will add something else.
    G: it should be the default if it's the right way.
 
-   - Injection introduces many incompatibilities, we'll need a
+   Decision:
+   - merge changes on injection, but we'll need a
    legacy tactic to replace it. Idea to use a module for deprecated tactics.
    
-   - intros until 1. (1st). opposition to 1st
+   - opposition to ordinal notations ("intros until 1st")
 
-   - 
+   - eintros ok, but make sure all e-variants are called for intro patterns (einjection,...)
+
+   - do not merge "==>"
+   
+   - do not merge /constr intro pattern
+
+   - "as" clause to specialize ok
+
+   - other code clean-up ok
 
 - [ ] :exclamation: Properly handle Hint Extern with conclusions of the form
    _ -> _" in typeclass resolution (M. Sozeau)
@@ -371,7 +395,7 @@ w.r.t. 8.5 (not taking into account plugin interfaces)
 
 # Standard Library
 
-- [ ] :exclamation: Changes in QArith/Qcanon,Qcabs by P. Letouzey with minor incompatibilities
+- [x] :exclamation: Changes in QArith/Qcanon,Qcabs by P. Letouzey with minor incompatibilities
    Decision: Lemma additions, minor incompatibilities
    
 - [ ] Introduction of MMaps
@@ -380,13 +404,11 @@ w.r.t. 8.5 (not taking into account plugin interfaces)
   set maximally implicit.
  Incompatibility should be clearly mentionned.
  
-- [ ] function_scope is now declared in Notations and bound to Funclass.
-- [ ] Scopes can be bound to classes again. (J. Gross)
+- [x] function_scope is now declared in Notations and bound to Funclass.
+- [x] Scopes can be bound to classes again. (J. Gross)
 
-- [ ] Definition of eta in VectorSpec.v
-- [ ] ListSet lemmas in Stdlib (S. Hinderer)
-- [ ] [PR#135](https://github.com/coq/coq/pull/135): Export Nat in
-  NPeano.v (J. Gross)
+- [x] Definition of eta in VectorSpec.v
+- [x] ListSet lemmas in Stdlib (S. Hinderer)
 
 # CoqIDE
 
