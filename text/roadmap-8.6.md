@@ -39,17 +39,20 @@ w.r.t. 8.5
 
 - [ ] [PR#86](https://github.com/coq/coq/pull/86): simplify sort_fields
    (G. Sherer)
- Decision: cleanup without parsing rule and merge.
+
+  Decision: cleanup without parsing rule and merge.
 
 - [ ] New warning system (P.-M. Pédrot and M. Dénès)
 
 - [ ] Flag deprecated commands: Add Setoid/Morphism/...?
+
   Decision: deprecate.
 
 - [ ] Windows SDK built from sources using Michael's script (Enrico).
 
 - [ ]  [PR#173](https://github.com/coq/coq/pull/173):
   Error resilient mode for STM (E. Tassi)
+
   Decision: ok. Difference between coqc and coqide.
 
 - [x] [PR#180](https://github.com/coq/coq/pull/180):
@@ -78,9 +81,9 @@ w.r.t. 8.5
 
 - [ ] Rename some modules to avoid conflicts with the ocaml compiler.
 
-While waiting for an upstream solution, we decided
- to rename files in our codebase whose names are conflicting 
- with the compiler-libs library of the ocaml compiler.
+  While waiting for an upstream solution, we decided
+  to rename files in our codebase whose names are conflicting 
+  with the compiler-libs library of the ocaml compiler.
 
 # Kernel
 
@@ -167,23 +170,24 @@ While waiting for an upstream solution, we decided
 
   No decision really, timeout
 
-# Unification:
+# Unification
 
 - [ ] Unification of Let-In bodies without unifying their types (in
 evarconv heuristic of first-order unifications) (9cc95f5)
- Decision: unification, use cumulativity state leq.
+
+  Decision: unification, use cumulativity state leq.
 
 - [ ] :exclamation: Keyed Unification:
 
-The strategy is now to do a first pass without conversion and
-a pass with full conversion of arguments if this fails, when
-selecting subterms. Keyed Unification is still restricted to
-[unify_to_subterm], used by the standard rewrite only (M. Sozeau).
+  The strategy is now to do a first pass without conversion and
+  a pass with full conversion of arguments if this fails, when
+  selecting subterms. Keyed Unification is still restricted to
+  [unify_to_subterm], used by the standard rewrite only (M. Sozeau).
 
-Decision: ok.
-Follow the compat flag.  
+  Decision: ok.
+  Follow the compat flag.  
 
-# Typeclasses:
+# Typeclasses
 
 - [ ] Option to add eta-unification during resolution.
 - [ ] Option to do resolution following the dependency order of subgoals
@@ -195,9 +199,10 @@ Should be renamed bfs.
 - [ ] New implementation of typeclasses eauto based on new proof engine,
 could replace eauto as well: full backtracking, Hint Cut supported,
 iterative deepening, limited search, ... (M. Sozeau) 
-[branch](https://github.com/mattam82/coq/commits/bteauto) 
-to be turned into a PR, compatibility checks to do first.
-Decision: ok. Compatibility with eauto?
+
+  [branch](https://github.com/mattam82/coq/commits/bteauto) 
+  to be turned into a PR, compatibility checks to do first.
+  Decision: ok. Compatibility with eauto?
 
 # Vernacular
 
@@ -265,9 +270,10 @@ Decision: ok. Compatibility with eauto?
   Foo vs Set Foo Debug (H. Herbelin)
 
 - [ ] [PR#162](https://github.com/coq/coq/pull/162): Search
-  Interface Revisions (G. Malecha) Decision: Moving
-  pattern_of_string/dirpath_of_string_list elsewhere.
-  Merge.  
+  Interface Revisions (G. Malecha)
+
+  Decision: Moving pattern_of_string/dirpath_of_string_list elsewhere.
+  Merge.
 
 # Tactics
 
@@ -280,6 +286,7 @@ Decision: ok. Compatibility with eauto?
   Decision: remove the double induction tactic.
 
 - [ ] :exclamation: invariants on (a, b, ...), intropattern for generalized cartesian products
+
   Stop autocompleting with ? (H. Herbelin)
   Used to: warning about more names, or less.
   Now: exact number of names.
@@ -291,7 +298,8 @@ Decision: ok. Compatibility with eauto?
    canonical strategy and can succeed more often.
  
 - [ ] :exclamation: congruence now uses build_selector from Equality (H. Herbelin)
- Decision: ok, incompatibility on discriminate on dependent types.
+
+  Decision: ok, incompatibility on discriminate on dependent types.
 
 - [ ] Clearing on the fly
  To be applied to destruct/applied.
@@ -300,35 +308,41 @@ Decision: ok. Compatibility with eauto?
  the default for e.g. apply is not changeable even if more natural.
  the code is already merged using > for clearing explicitely.
 
-- [ ] :exclamation: Clear not failing when an hypothesis didn't exist in Ltac mode,
- now it does (only in strict mode?).
- Decision: ok.
+- [ ] :exclamation: Clear not failing when an hypothesis didn't exist
+  in Ltac mode, now it does (only in strict mode?).
+ 
+  Decision: ok.
 
 - [ ] :exclamation: contradiction (H. Herbelin)
+
  Adds incompatibility: more success. ~ True and ~ (x = x), part of [easy].
  Decision: ok. Compatibility issue.
 
 - [ ] refine and conv_pbs (E. Tassi, M. Dénès)
- Discussion: refine can be unsafe in the sense of not checking which
- unification problems are solved.
- Problem of API and sealing. 
- - Fix refine, document API
- Decision: fix ok.
+
+  Discussion: refine can be unsafe in the sense of not checking which
+  unification problems are solved.
+  Problem of API and sealing. 
+  - Fix refine, document API
+  Decision: fix ok.
 
 - [ ] Set Printing Unification Problems by M. Sozeau.
 
 - [ ] [PR#74](https://github.com/coq/coq/pull/74): Range selector
    (C. Mangin)
- Decision: take 1st part, document it in refman (associativity).
- Do not allow ?[x].
 
-- [ ] :exclamation: [PR#100](https://github.com/coq/coq/pull/100|#100): fresh accepts more
- things (P. Courtieu) fresh will succeed more often=incompatibilies.
- Are these incompatibilites difficult to fix? Nobody should rely on it,
- (is_constr, is_var, ...)
- Decision: ok with review by Pierre-Marie.
+  Decision: take 1st part, document it in refman (associativity). Do
+  not allow ?[x].
 
-- [ ] :exclamation: [PR#140](https://github.com/coq/coq/pull/140): Iff as a proper
+- [ ] :exclamation: [PR#100](https://github.com/coq/coq/pull/100|#100):
+  fresh accepts more things (P. Courtieu) fresh will succeed more
+  often=incompatibilies.
+
+  Are these incompatibilites difficult to fix? Nobody should rely on it,
+  (is_constr, is_var, ...)
+  Decision: ok with review by Pierre-Marie.
+
+- [ ] :exclamation: :question: [PR#140](https://github.com/coq/coq/pull/140): Iff as a proper
   connective (H. Herbelin)
 
   Problem of coercions. Compatibility issue..
@@ -337,6 +351,7 @@ Decision: ok. Compatibility with eauto?
 
 - [ ] [PR#146](https://github.com/coq/coq/pull/146): Ssreflect pattern
    matching facilities (E. Tassi)
+
   Discussion: some documentation issues
   Decision: ok. Documentation of the ltac and advertisement.
 
@@ -345,15 +360,13 @@ Decision: ok. Compatibility with eauto?
   Decision: in 8.6. No incompatibility, accept that its incomplete on
   backtracking, as a debug feature.
 
-- [ ] :exclamation: injection as ([intropattern]): changed? Compatibility is not
+- [ ] :exclamation: :question: injection as ([intropattern]): changed? Compatibility is not
   guaranteed here (H. Herbelin).
+
   What changed? Postponed to June 1st.
 
 - [ ] [PR#164](https://github.com/coq/coq/pull/164): A few tactics for
    8.6 (H. Herbelin)
-   Discussion:
-   H: it is stepwise additions, so next version will add something else.
-   G: it should be the default if it's the right way.
 
    Decision:
    - merge changes on injection, but we'll need a
@@ -373,14 +386,17 @@ Decision: ok. Compatibility with eauto?
 
 - [ ] :exclamation: Properly handle Hint Extern with conclusions of the form
    _ -> _" in typeclass resolution (M. Sozeau)
+
    This breaks compatibility, these Hint Externs were not
    found before as the pattern was matched on the conclusion of the
    goal, removing arrows.
 
   Decision: put a warning at least on Hint Externs, maybe fix it.
 
-- [ ] Fix semantics of pattern-matching in Ltac (non-linear patterns,
-   difference between hyps and goal and hyps) (M. Sozeau)
+- [ ] :exclamation: :question: Fix semantics of pattern-matching in
+   Ltac (non-linear patterns, difference between hyps and goal and
+   hyps) (M. Sozeau)
+
   Idea: use a warning for using conversion instead of syntactic checks
    and output a warning about deprecation.
   No problem a priori.
@@ -391,12 +407,15 @@ Decision: ok. Compatibility with eauto?
   argument to have been defined beforehand, e.g. "intro x" is rejected
   and should be turned into "let x := fresh in intro x" (or similar).
 
-- [ ] :exclamation: Force "let rec" Ltac to be a thunk, e.g. "let rec x := idtac" is forbidden and should be turned into "let rec x _ := idtac".
+- [ ] :exclamation: Force "let rec" Ltac to be a thunk, e.g. "let rec
+  x := idtac" is forbidden and should be turned into "let rec x _ :=
+  idtac".
 
 # Standard Library
 
-- [x] :exclamation: Changes in QArith/Qcanon,Qcabs by P. Letouzey with minor incompatibilities
-   Decision: Lemma additions, minor incompatibilities
+- [x] :exclamation: Changes in QArith/Qcanon,Qcabs by P. Letouzey with
+   minor incompatibilities Decision: Lemma additions, minor
+   incompatibilities
    
 - [ ] Introduction of MMaps
 
@@ -415,11 +434,13 @@ Decision: ok. Compatibility with eauto?
 - [x] Modernization of the preferences (P.M. Pédrot).
 - [ ] [PR#67](https://github.com/coq/coq/pull/67): Add a Show Proof query
  to CoqIDE.
- Decision: ok. Merging help needed from PM.
+
+  Decision: ok. Merging help needed from PM.
 
 # Tools
 - [ ] [PR#166](https://github.com/coq/coq/pull/166):
  Add -o option to coqc to choose the .vo file directory (E. Tassi)
- -o cmxs issue ? options to ML compiler ?
- -L issue ?
- Decision: ok, think about the makefile.
+
+  -o cmxs issue ? options to ML compiler ?
+  -L issue ?
+  Decision: ok, think about the makefile.
