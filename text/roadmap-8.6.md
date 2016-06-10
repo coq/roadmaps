@@ -39,17 +39,10 @@ w.r.t. 8.5 (not taking into account plugin interfaces)
  are less likely to forget that there are potentially local definitions
  and not only declarations in these contexts.
 
-- [ ] :exclamation: PR coq/coq#143 now coq/coq#179: Feedback/pp cleanup (E. J. Gallego)
-   [EJGA] I should be able to get this in shape for 8.6.
-   [EJGA] Done
+- [x] :exclamation: [PR#179](https://github.com/coq/coq/pull/179):
+  Feedback/pp cleanup (E. J. Gallego)
    
-   8.5: compatibility issue, breaks contribs. Documented in CHANGES.
-
- Discussion about instructions on how to fix the contribs and policy for
- PRs breaking contribs.
- Decision: merged.
-
-- [ ] PR [[https://github.com/coq/coq/pull/158|#158]]: Fixing the
+- [ ] [PR#158](https://github.com/coq/coq/pull/158): Fixing the
    "beautifier" and checking the parsing-printing reversibility
    (H. Herbelin)
 
@@ -58,38 +51,40 @@ w.r.t. 8.5 (not taking into account plugin interfaces)
 
  Decision: ok, with configure option to activating/deactivating.
 
-- [ ] PR [[https://github.com/coq/coq/pull/86|#86]]: simplify sort_fields
+- [ ] [PR#86](https://github.com/coq/coq/pull/86): simplify sort_fields
    (G. Sherer)
  Decision: cleanup without parsing rule and merge.
 
-- [ ] :exclamation: PR [[[[https://github.com/coq/coq/pull/117|#117]]: iota split into iota0+phi+psi and ML API cleanup for
-  reduction functions (H. Herbelin).
+- [ ] :exclamation: [PR#117](https://github.com/coq/coq/pull/117):
+  iota split into iota0+phi+psi and ML API cleanup for reduction
+  functions (H. Herbelin).
 
   Decision: Set iota to be match + fix + cofix at user level, preserving
   compatibility.
   No incompatibility at the ML level. Maxime and Hugo to work on the merge.
 
-- [ ] New warning system.
- Decision: ok.
+- [ ] New warning system (P.-M. Pédrot and M. Dénès)
 
 - [ ] Flag deprecated commands: Add Setoid/Morphism/...?
- Decision: deprecate.
+  Decision: deprecate.
 
 - [ ] Windows SDK built from sources using Michael's script (Enrico).
 
-- [ ] Error resilient mode for STM (Enrico) [[https://github.com/coq/coq/pull/173|#173]]
- Decision: ok. Difference between coqc and coqide.
+- [ ]  [PR#173](https://github.com/coq/coq/pull/173):
+  Error resilient mode for STM (E. Tassi)
+  Decision: ok. Difference between coqc and coqide.
 
-- [x] Compartimentalize IDE-API specific serialization in IDE (PR#180,
- EJGA).
+- [x] [PR#180](https://github.com/coq/coq/pull/180):
+  Compartimentalize IDE-API specific serialization in IDE (E. J. Gallego)
 
 - [ ] Use -pack for plugins
-- [ ] [[https://github.com/coq/coq/pull/185|#185]] Remove unused printing infrastructure and duplication.
+- [ ] [PR#185](https://github.com/coq/coq/pull/185|#185)
+   Remove unused printing infrastructure and duplication (E. J. Gallego)
    [EJGA] This is up to PMP/Enrico, I did this PR because the stuff is abandoned and it was indeed confusing people looking at it. It also saves 24K of bytecode and removes a duplicate code path.
 
 # Kernel
 
-- [x] New universe cycle detection algorithm by J.H. Jourdan.
+- [x] New universe cycle detection algorithm (J.H. Jourdan)
  Much faster on typical graphs, implements a state-of-the-art incremental cycle
  detection algorithm by Bender, M. A., Fineman, J. T., Gilbert, S., &
  Tarjan, R. E.
@@ -116,7 +111,7 @@ w.r.t. 8.5 (not taking into account plugin interfaces)
   so we can evaluate the incompatibility better and in this case
   specialize constr:().
 
-- [ ] At the level of ML: camlp4 quotations of ltac are no longer
+  At the level of ML: camlp4 quotations of ltac are no longer
   supported (<:ltac < auto with *>>)
   
  Some tactics and vernac entries were moved to 
@@ -187,7 +182,8 @@ w.r.t. 8.5 (not taking into account plugin interfaces)
   To be turned into a PR, compatibility checks to do first.
   Decision: ok. Compatibility with eauto?
   
-- [ ] PR [[https://github.com/coq/coq/pull/142|#142]] Patterns in abstractions (D. de Rauglaudre)
+- [ ] PR#142(https://github.com/coq/coq/pull/142): Patterns in
+  abstractions (D. de Rauglaudre)
 
 # Vernacular
 
@@ -202,14 +198,15 @@ w.r.t. 8.5 (not taking into account plugin interfaces)
 
 - [ ] Deprecate non-qualified Requires ? Emitting a warning may be fine.
 
-- [ ] PR [[https://github.com/coq/coq/pull/78|#78]] Assume
-   Positive/Guarded/... Syntax issue on attributes, naming.
+- [ ] [PR#78](https://github.com/coq/coq/pull/78) Assume
+   Positive/Guarded/... (A. Spiwack)
 
+  Syntax issue on attributes, naming.
   Decision: provide the API. No decision on the syntax.
   Let it be accessible to plugins only.
 
 
-- [ ] PR [[https://github.com/coq/coq/pull/85|#85]] Printing in cbv/cbn
+- [ ] [PR#85](https://github.com/coq/coq/pull/85|#85) Printing in cbv/cbn
  - Is it subsumed by other features?
  - Can it be made into a plugin?
  Decision:
@@ -232,9 +229,11 @@ w.r.t. 8.5 (not taking into account plugin interfaces)
 
 - [ ] Support for (@foo) args in patterns, when @foo has no arguments (H. Herbelin).
 
-- [ ] @, abbreviations and notations are now interpreted in patterns like in terms (H. Herbelin).
+- [ ] @, abbreviations and notations are now interpreted in patterns
+  like in terms (H. Herbelin).
     
-- [ ] PR [[https://github.com/coq/coq/pull/156|#156]] Coq-level numeral printers, now a CEP: [[CEP/Numeral Notation]] (D. de Rauglaudre)
+- [ ] [PR#156](https://github.com/coq/coq/pull/156) Coq-level numeral
+ printers, now a CEP: [[CEP/Numeral Notation]] (D. de Rauglaudre)
  Discussion:
    P. Letouzey helped improve it.
    should be revised.
@@ -244,19 +243,15 @@ w.r.t. 8.5 (not taking into account plugin interfaces)
  Decision:
    ok. Advertise it too, new feature, not entirely complete.
 
-- [x] PR [[https://github.com/coq/coq/pull/64|#64]]: Add a Print Ltacs
+- [x] [PR#64](https://github.com/coq/coq/pull/64): Add a Print Ltacs
    vernacular (C. Pit-Claudel)
 
-- [ ] PR [[https://github.com/coq/coq/pull/113|#113]]: Add the "not a
-    keyword" modifier to notations (J.P. Delaix?)
-  Discussion: camlp4/camlp5 discrepancy. Fix not needed anymore.
-  Decision: closed. 
+- [ ] [PR#114](https://github.com/coq/coq/pull/114): Set Debug
+  Foo vs Set Foo Debug (H. Herbelin)
 
-
-- [ ] PR [[https://github.com/coq/coq/pull/114|#114]]: Set Debug Foo vs Set Foo Debug (H. Herbelin)
-
-- [ ] PR [[https://github.com/coq/coq/pull/162|#162]]: Search Interface Revisions (G. Malecha)
-  Decision: Moving pattern_of_string/dirpath_of_string_list elsewhere.
+- [ ] [PR#162](https://github.com/coq/coq/pull/162): Search
+  Interface Revisions (G. Malecha) Decision: Moving
+  pattern_of_string/dirpath_of_string_list elsewhere.
   Merge.  
 
 # Tactics
@@ -280,58 +275,58 @@ w.r.t. 8.5 (not taking into account plugin interfaces)
 - [x] :exclamation: "Set Regular Subst Tactic" on by default, subst has a more
    canonical strategy and can succeed more often.
  
- - [ ] :exclamation: congruence now uses build_selector from Equality (H. Herbelin)
+- [ ] :exclamation: congruence now uses build_selector from Equality (H. Herbelin)
  Decision: ok, incompatibility on discriminate on dependent types.
 
- - [ ] Clearing on the fly
+- [ ] Clearing on the fly
  To be applied to destruct/applied.
  Design decisions on default, currently compatible.
  Discussion: postpone the design on configurability,
  the default for e.g. apply is not changeable even if more natural.
  the code is already merged using > for clearing explicitely.
 
- - [ ] :exclamation: Clear not failing when an hypothesis didn't exist in Ltac mode,
+- [ ] :exclamation: Clear not failing when an hypothesis didn't exist in Ltac mode,
  now it does (only in strict mode?).
  Decision: ok.
 
- - [ ] :exclamation: contradiction (H. Herbelin)
+- [ ] :exclamation: contradiction (H. Herbelin)
  Adds incompatibility: more success. ~ True and ~ (x = x), part of [easy].
  Decision: ok. Compatibility issue.
 
- - [ ] refine and conv_pbs (E. Tassi, M. Dénès)
+- [ ] refine and conv_pbs (E. Tassi, M. Dénès)
  Discussion: refine can be unsafe in the sense of not checking which
  unification problems are solved.
  Problem of API and sealing. 
  - Fix refine, document API
  Decision: fix ok.
 
-- Set Printing Unification Problems by M. Sozeau.
+- [ ] Set Printing Unification Problems by M. Sozeau.
 
-- [ ] PR [[https://github.com/coq/coq/pull/74|#74]]: Range selector
+- [ ] [PR#74](https://github.com/coq/coq/pull/74): Range selector
    (C. Mangin)
  Decision: take 1st part, document it in refman (associativity).
  Do not allow ?[x].
 
-- [ ] :exclamation: PR [[https://github.com/coq/coq/pull/100|#100]]: fresh accepts more
+- [ ] :exclamation: [PR#100](https://github.com/coq/coq/pull/100|#100): fresh accepts more
  things (P. Courtieu) fresh will succeed more often=incompatibilies.
  Are these incompatibilites difficult to fix? Nobody should rely on it,
  (is_constr, is_var, ...)
  Decision: ok with review by Pierre-Marie.
 
-- [ ] :exclamation: PR [[https://github.com/coq/coq/pull/140|#140]]: Iff as a proper
+- [ ] :exclamation: PR#140(https://github.com/coq/coq/pull/140): Iff as a proper
   connective (H. Herbelin)
 
   Problem of coercions. Compatibility issue..
   - Evaluate on contribs.
   Decision: wait on.
 
-- [ ] PR [[https://github.com/coq/coq/pull/146|#146]]: Ssreflect pattern
+- [ ] [PR#146](https://github.com/coq/coq/pull/146): Ssreflect pattern
    matching facilities (E. Tassi)
   Discussion: some documentation issues
   Decision: ok. Documentation of the ltac and advertisement.
 
 
-- [ ] PR [[https://github.com/coq/coq/pull/150|#150]]: LtacProf (trunk) (T. Tebbi, J. Gross, P. Steckler)
+- [ ] [PR#150](https://github.com/coq/coq/pull/150): LtacProf (trunk) (T. Tebbi, J. Gross, P. Steckler)
   Decision: in 8.6. No incompatibility, accept that its incomplete on
   backtracking, as a debug feature.
 
@@ -339,7 +334,7 @@ w.r.t. 8.5 (not taking into account plugin interfaces)
   guaranteed here (H. Herbelin).
   What changed? Postponed to June 1st.
 
-- [ ] ? PR [[https://github.com/coq/coq/pull/164|#164]]: A few tactics for
+- [ ] ? [PR#164](https://github.com/coq/coq/pull/164): A few tactics for
    8.6 (H. Herbelin)
    Discussion:
    H: it is stepwise additions, so next version will add something else.
@@ -360,8 +355,8 @@ w.r.t. 8.5 (not taking into account plugin interfaces)
 
   Decision: put a warning at least on Hint Externs, maybe fix it.
 
-- [ ] Fix semantics of pattern-matching in Ltac (non-linear patterns, difference between hyps and goal and hyps)
-   (M. Sozeau)
+- [ ] Fix semantics of pattern-matching in Ltac (non-linear patterns,
+   difference between hyps and goal and hyps) (M. Sozeau)
   Idea: use a warning for using conversion instead of syntactic checks
    and output a warning about deprecation.
   No problem a priori.
@@ -390,18 +385,19 @@ w.r.t. 8.5 (not taking into account plugin interfaces)
 
 - [ ] Definition of eta in VectorSpec.v
 - [ ] ListSet lemmas in Stdlib (S. Hinderer)
-- [ ] PR [[https://github.com/coq/coq/pull/135|#135]]: Export Nat in NPeano.v (J. Gross) 
+- [ ] [PR#135](https://github.com/coq/coq/pull/135): Export Nat in
+  NPeano.v (J. Gross)
 
 # CoqIDE
 
 - [x] Modernization of the preferences (P.M. Pédrot).
-- [ ] PR [[https://github.com/coq/coq/pull/67|#67]]: Add a Show Proof query
+- [ ] [PR#67](https://github.com/coq/coq/pull/67): Add a Show Proof query
  to CoqIDE.
  Decision: ok. Merging help needed from PM.
 
 # Tools
-- [ ] PR [[https://github.com/coq/coq/pull/166|#166]]:
- Add -o option to coqc to choose the .vo file directory (Enrico)
+- [ ] [PR#166](https://github.com/coq/coq/pull/166):
+ Add -o option to coqc to choose the .vo file directory (E. Tassi)
  -o cmxs issue ? options to ML compiler ?
  -L issue ?
  Decision: ok, think about the makefile.
