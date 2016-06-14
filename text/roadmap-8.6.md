@@ -266,7 +266,7 @@ iterative deepening, limited search, ... (M. Sozeau)
 - [x] [PR#64](https://github.com/coq/coq/pull/64): Add a Print Ltacs
    vernacular (C. Pit-Claudel)
 
-- [ ] [PR#114](https://github.com/coq/coq/pull/114): Set Debug
+- [x] [PR#114](https://github.com/coq/coq/pull/114): Set Debug
   Foo vs Set Foo Debug (H. Herbelin)
 
 - [ ] [PR#162](https://github.com/coq/coq/pull/162): Search
