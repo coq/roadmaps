@@ -185,12 +185,12 @@ evarconv heuristic of first-order unifications) (9cc95f5)
   [unify_to_subterm], used by the standard rewrite only (M. Sozeau).
 
   Decision: ok.
-  Follow the compat flag.  
+  TODO: Follow the compat flag.  
 
 # Typeclasses
 
-- [ ] Option to add eta-unification during resolution.
-- [ ] Option to do resolution following the dependency order of subgoals
+- [x] Option to add eta-unification during resolution.
+- [x] Option to do resolution following the dependency order of subgoals
 in resolution (previously, and by default, the most dependent ones
 are tried first, respecting the semantics of the previous proof engine).
 - [ ] Option to switch to an iterative deepening search strategy.
@@ -356,7 +356,7 @@ iterative deepening, limited search, ... (M. Sozeau)
   Decision: ok. Documentation of the ltac and advertisement.
 
 
-- [ ] [PR#150](https://github.com/coq/coq/pull/150): LtacProf (trunk) (T. Tebbi, J. Gross, P. Steckler)
+- [x] [PR#150](https://github.com/coq/coq/pull/150): LtacProf (trunk) (T. Tebbi, J. Gross, P. Steckler)
   Decision: in 8.6. No incompatibility, accept that its incomplete on
   backtracking, as a debug feature.
 
@@ -438,7 +438,7 @@ iterative deepening, limited search, ... (M. Sozeau)
   Decision: ok. Merging help needed from PM.
 
 # Tools
-- [ ] [PR#166](https://github.com/coq/coq/pull/166):
+- [x] [PR#166](https://github.com/coq/coq/pull/166):
  Add -o option to coqc to choose the .vo file directory (E. Tassi)
 
   -o cmxs issue ? options to ML compiler ?
