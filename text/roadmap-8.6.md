@@ -20,11 +20,6 @@ w.r.t. 8.5
   the state is used monotonously (using GADTs). namegen, termops,
   logic_monad, proofview_monad are also in engine.
 
-- [ ] Bytes/String PR by E. Arias. WIP, proposal is to split it in smaller
-  chunks and do renamings.
-
-   [EGJA] A few minor parts should be able to go into 8.6 IMHO. Personally, I would just postpone the rest until 4.02 is the default compiler to avoid shipping more compatibility burden.
-
 - [x] :exclamation: [PR#179](https://github.com/coq/coq/pull/179):
   Feedback/pp cleanup (E. J. Gallego)
    
