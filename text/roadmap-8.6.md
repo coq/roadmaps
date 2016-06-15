@@ -77,7 +77,7 @@ w.r.t. 8.5
  
 - [x] Switch to using ocamlfind for finding compilers (new dependency)
  
-- [ ] Use -pack for plugins shipped with Coq or compiled through coq_makefile (P. Letouzey)
+- [x] Use -pack for plugins shipped with Coq or compiled through coq_makefile (P. Letouzey)
 
 - [ ] Rename some modules to avoid conflicts with the ocaml compiler.
 
@@ -117,7 +117,7 @@ w.r.t. 8.5
 
 # Ltac
 
-- [ ] :exclamation: Ltac implementation refactoring, "Ltac as a plugin" (P.M. Pédrot).
+- [x] :exclamation: Ltac implementation refactoring, "Ltac as a plugin" (P.M. Pédrot).
  Uniform handling of generic arguments.
 
   Incompatibilities:
@@ -269,7 +269,7 @@ iterative deepening, limited search, ... (M. Sozeau)
 - [x] [PR#114](https://github.com/coq/coq/pull/114): Set Debug
   Foo vs Set Foo Debug (H. Herbelin)
 
-- [ ] [PR#162](https://github.com/coq/coq/pull/162): Search
+- [x] [PR#162](https://github.com/coq/coq/pull/162): Search
   Interface Revisions (G. Malecha)
 
   Decision: Moving pattern_of_string/dirpath_of_string_list elsewhere.
@@ -402,7 +402,7 @@ iterative deepening, limited search, ... (M. Sozeau)
   No problem a priori.
   Decision: if we have time to evaluate before June 15th.
 
-- [ ] :exclamation: Remove some atomic tactics from the AST. This
+- [x] :exclamation: Remove some atomic tactics from the AST. This
   breaks "intro" in strict mode (i.e. Ltac := ...) by forcing its
   argument to have been defined beforehand, e.g. "intro x" is rejected
   and should be turned into "let x := fresh in intro x" (or similar).
@@ -432,7 +432,7 @@ iterative deepening, limited search, ... (M. Sozeau)
 # CoqIDE
 
 - [x] Modernization of the preferences (P.M. Pédrot).
-- [ ] [PR#67](https://github.com/coq/coq/pull/67): Add a Show Proof query
+- [x] [PR#67](https://github.com/coq/coq/pull/67): Add a Show Proof query
  to CoqIDE.
 
   Decision: ok. Merging help needed from PM.
