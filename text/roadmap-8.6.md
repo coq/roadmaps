@@ -60,6 +60,16 @@ w.r.t. 8.5
   abandoned and it was indeed confusing people looking at it. It also
   saves 24K of bytecode and removes a duplicate code path.
 
+- [ ] :grey exclamation: [PR#204](https://github.com/coq/coq/pull/204|#204)
+  Allow stream parsing from the Stm. [Breakage on Stm users is trivial to fix]
+
+  IMO quite important for IDEs.
+
+- [ ] [PR#206](https://github.com/coq/coq/pull/206|#206)
+  Allow catching EvaluatedError exceptions.
+
+  Trivial PR.
+
 # Build infrastructure
 
 - [x] We settled on requiring ocaml >= 4.01.0 for 8.6.
