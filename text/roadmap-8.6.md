@@ -170,6 +170,9 @@ w.r.t. 8.5
 
   No decision really, timeout
 
+- [ ] [PR#194](https://github.com/coq/coq/pull/194) Add an 'only printing' flag
+  to notations.
+
 # Unification
 
 - [ ] Unification of Let-In bodies without unifying their types (in
@@ -410,6 +413,9 @@ iterative deepening, limited search, ... (M. Sozeau)
 - [ ] :exclamation: Force "let rec" Ltac to be a thunk, e.g. "let rec
   x := idtac" is forbidden and should be turned into "let rec x _ :=
   idtac".
+
+- [ ] [PR#195](https://github.com/coq/coq/pull/195) Add is_ind, is_constructor,
+  is_proj tactics.
 
 # Standard Library
 
