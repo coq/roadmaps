@@ -53,19 +53,19 @@ w.r.t. 8.5
 - [x] [PR#180](https://github.com/coq/coq/pull/180):
   Compartimentalize IDE-API specific serialization in IDE (E. J. Gallego)
 
-- [ ] :question: [PR#185](https://github.com/coq/coq/pull/185|#185)
+- [ ] :question: [PR#185](https://github.com/coq/coq/pull/185)
    Remove unused printing infrastructure and duplication (E. J. Gallego)
 
   [EJGA] This is up to PMP/Enrico, I did this PR because the stuff is
   abandoned and it was indeed confusing people looking at it. It also
   saves 24K of bytecode and removes a duplicate code path.
 
-- [ ] :grey exclamation: [PR#204](https://github.com/coq/coq/pull/204|#204)
+- [ ] :grey exclamation: [PR#204](https://github.com/coq/coq/pull/204)
   Allow stream parsing from the Stm. [Breakage on Stm users is trivial to fix]
 
   IMO quite important for IDEs.
 
-- [ ] [PR#206](https://github.com/coq/coq/pull/206|#206)
+- [ ] [PR#206](https://github.com/coq/coq/pull/206)
   Allow catching EvaluatedError exceptions.
 
   Trivial PR.
@@ -185,7 +185,7 @@ evarconv heuristic of first-order unifications) (9cc95f5)
 
   Decision: unification, use cumulativity state leq.
 
-- [ ] :exclamation: Keyed Unification:
+- [x] :exclamation: Keyed Unification:
 
   The strategy is now to do a first pass without conversion and
   a pass with full conversion of arguments if this fails, when
@@ -336,7 +336,7 @@ iterative deepening, limited search, ... (M. Sozeau)
   Decision: take 1st part, document it in refman (associativity). Do
   not allow ?[x].
 
-- [ ] :exclamation: [PR#100](https://github.com/coq/coq/pull/100):
+- [x] :exclamation: [PR#100](https://github.com/coq/coq/pull/100):
   fresh accepts more things (P. Courtieu) fresh will succeed more
   often=incompatibilies.
 
