@@ -180,7 +180,7 @@ w.r.t. 8.5
 
 # Unification
 
-- [ ] Unification of Let-In bodies without unifying their types (in
+- [x] Unification of Let-In bodies without unifying their types (in
 evarconv heuristic of first-order unifications) (9cc95f5)
 
   Decision: unification, use cumulativity state leq.
@@ -328,7 +328,7 @@ iterative deepening, limited search, ... (M. Sozeau)
   - Fix refine, document API
   Decision: fix ok.
 
-- [ ] Set Printing Unification Problems by M. Sozeau.
+- [x] Set Printing Unification Problems by M. Sozeau.
 
 - [x] [PR#74](https://github.com/coq/coq/pull/74): Range selector
    (C. Mangin)
