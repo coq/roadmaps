@@ -287,7 +287,7 @@ iterative deepening, limited search, ... (M. Sozeau)
 
 - [ ] :exclamation: Remove the double induction tactic which was deprecated.
 
-- [ ] :exclamation: invariants on (a, b, ...), intropattern for generalized cartesian products
+- [x] :exclamation: invariants on (a, b, ...), intropattern for generalized cartesian products
 
   Stop autocompleting with ? (H. Herbelin)
   Used to: warning about more names, or less.
@@ -299,7 +299,7 @@ iterative deepening, limited search, ... (M. Sozeau)
 - [x] :exclamation: "Set Regular Subst Tactic" on by default, subst has a more
    canonical strategy and can succeed more often.
  
-- [ ] :exclamation: congruence now uses build_selector from Equality (H. Herbelin)
+- [x] :exclamation: congruence now uses build_selector from Equality (H. Herbelin)
 
   Decision: ok, incompatibility on discriminate on dependent types.
 
@@ -351,7 +351,7 @@ iterative deepening, limited search, ... (M. Sozeau)
   - Evaluate on contribs.
   Decision: wait on.
 
-- [ ] [PR#146](https://github.com/coq/coq/pull/146): Ssreflect pattern
+- [x] [PR#146](https://github.com/coq/coq/pull/146): Ssreflect pattern
    matching facilities (E. Tassi)
 
   Discussion: some documentation issues
