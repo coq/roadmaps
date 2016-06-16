@@ -201,10 +201,10 @@ evarconv heuristic of first-order unifications) (9cc95f5)
 - [x] Option to do resolution following the dependency order of subgoals
 in resolution (previously, and by default, the most dependent ones
 are tried first, respecting the semantics of the previous proof engine).
-- [ ] Option to switch to an iterative deepening search strategy.
+- [x] Option to switch to an iterative deepening search strategy.
 Should be renamed bfs.
 
-- [ ] New implementation of typeclasses eauto based on new proof engine,
+- [x] New implementation of typeclasses eauto based on new proof engine,
 could replace eauto as well: full backtracking, Hint Cut supported,
 iterative deepening, limited search, ... (M. Sozeau) 
 
@@ -330,7 +330,7 @@ iterative deepening, limited search, ... (M. Sozeau)
 
 - [ ] Set Printing Unification Problems by M. Sozeau.
 
-- [ ] [PR#74](https://github.com/coq/coq/pull/74): Range selector
+- [x] [PR#74](https://github.com/coq/coq/pull/74): Range selector
    (C. Mangin)
 
   Decision: take 1st part, document it in refman (associativity). Do
@@ -403,6 +403,7 @@ iterative deepening, limited search, ... (M. Sozeau)
    and output a warning about deprecation.
   No problem a priori.
   Decision: if we have time to evaluate before June 15th.
+  Postponed to 8.7.
 
 - [x] :exclamation: Remove some atomic tactics from the AST. This
   breaks "intro" in strict mode (i.e. Ltac := ...) by forcing its
@@ -413,7 +414,7 @@ iterative deepening, limited search, ... (M. Sozeau)
   x := idtac" is forbidden and should be turned into "let rec x _ :=
   idtac".
 
-- [ ] [PR#195](https://github.com/coq/coq/pull/195) Add is_ind, is_constructor,
+- [x] [PR#195](https://github.com/coq/coq/pull/195) Add is_ind, is_constructor,
   is_proj tactics.
 
 # Standard Library
