@@ -45,7 +45,7 @@ w.r.t. 8.5
 
 - [ ] Windows SDK built from sources using Michael's script (Enrico).
 
-- [ ]  [PR#173](https://github.com/coq/coq/pull/173):
+- [x]  [PR#173](https://github.com/coq/coq/pull/173):
   Error resilient mode for STM (E. Tassi)
 
   Decision: ok. Difference between coqc and coqide.
@@ -175,7 +175,7 @@ w.r.t. 8.5
 
   No decision really, timeout
 
-- [ ] [PR#194](https://github.com/coq/coq/pull/194) Add an 'only printing' flag
+- [x] [PR#194](https://github.com/coq/coq/pull/194) Add an 'only printing' flag
   to notations.
 
 # Unification
@@ -225,7 +225,7 @@ iterative deepening, limited search, ... (M. Sozeau)
 
 - [ ] Deprecate non-qualified Requires ? Emitting a warning may be fine.
 
-- [ ] [PR#78](https://github.com/coq/coq/pull/78) Assume
+- [ ] [PR#79](https://github.com/coq/coq/pull/79) Assume
    Positive/Guarded/... (A. Spiwack)
 
   Syntax issue on attributes, naming.
@@ -233,7 +233,7 @@ iterative deepening, limited search, ... (M. Sozeau)
   Let it be accessible to plugins only.
 
 
-- [ ] [PR#85](https://github.com/coq/coq/pull/85|#85) Printing in cbv/cbn
+- [ ] [PR#85](https://github.com/coq/coq/pull/85) Printing in cbv/cbn
  - Is it subsumed by other features?
  - Can it be made into a plugin?
  Decision:
@@ -256,7 +256,7 @@ iterative deepening, limited search, ... (M. Sozeau)
 
 - [x] Support for (@foo) args in patterns, when @foo has no arguments (H. Herbelin).
 
-- [ ] @, abbreviations and notations are now interpreted in patterns
+- [x] @, abbreviations and notations are now interpreted in patterns
   like in terms (H. Herbelin).
     
 - [ ] [PR#156](https://github.com/coq/coq/pull/156) Coq-level numeral
@@ -285,13 +285,7 @@ iterative deepening, limited search, ... (M. Sozeau)
 
 # Tactics
 
-- [ ] :exclamation: double induction, which is deprecated (but not
-  warned as such), was improved by H. Herbelin, introducing an
-  incompatibility (it succeeds more often). Compatibility flag?
-
-  induction m, n = induction m ; destruct m
-  double induction n m = elim n ; elim m.
-  Decision: remove the double induction tactic.
+- [ ] :exclamation: Remove the double induction tactic which was deprecated.
 
 - [ ] :exclamation: invariants on (a, b, ...), intropattern for generalized cartesian products
 
@@ -342,7 +336,7 @@ iterative deepening, limited search, ... (M. Sozeau)
   Decision: take 1st part, document it in refman (associativity). Do
   not allow ?[x].
 
-- [ ] :exclamation: [PR#100](https://github.com/coq/coq/pull/100|#100):
+- [ ] :exclamation: [PR#100](https://github.com/coq/coq/pull/100):
   fresh accepts more things (P. Courtieu) fresh will succeed more
   often=incompatibilies.
 
