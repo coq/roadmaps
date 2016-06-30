@@ -35,9 +35,7 @@ w.r.t. 8.5
 - [x] [PR#86](https://github.com/coq/coq/pull/86): simplify sort_fields
    (G. Sherer)
 
-  Decision: cleanup without parsing rule and merge.
-
-- [ ] New warning system (P.-M. Pédrot and M. Dénès)
+- [x] New warning system (P.-M. Pédrot and M. Dénès)
 
 - [ ] Flag deprecated commands: Add Setoid/Morphism/...?
 
@@ -53,19 +51,12 @@ w.r.t. 8.5
 - [x] [PR#180](https://github.com/coq/coq/pull/180):
   Compartimentalize IDE-API specific serialization in IDE (E. J. Gallego)
 
-- [ ] :question: [PR#185](https://github.com/coq/coq/pull/185)
-   Remove unused printing infrastructure and duplication (E. J. Gallego)
-
-  [EJGA] This is up to PMP/Enrico, I did this PR because the stuff is
-  abandoned and it was indeed confusing people looking at it. It also
-  saves 24K of bytecode and removes a duplicate code path.
-
 - [ ] :grey exclamation: [PR#204](https://github.com/coq/coq/pull/204)
   Allow stream parsing from the Stm. [Breakage on Stm users is trivial to fix]
 
   IMO quite important for IDEs.
 
-- [ ] [PR#206](https://github.com/coq/coq/pull/206)
+- [x] [PR#206](https://github.com/coq/coq/pull/206)
   Allow catching EvaluatedError exceptions.
 
   Trivial PR.
@@ -79,6 +70,8 @@ w.r.t. 8.5
   in the configure script.
 
   [EJGA] Note that this will likely break Debian packages, as they ship a patched Ocaml 4.01.0 thus configure will fail.
+
+- [x] Coq 8.6 requires Camlp5 6.06 (or Camlp4)
  
 - [x] Switch to using ocamlfind for finding compilers (new dependency)
  
@@ -109,8 +102,6 @@ w.r.t. 8.5
   straightforward.  An advantage of the new representation is that users
   are less likely to forget that there are potentially local definitions
   and not only declarations in these contexts.
-
-- [ ] Optimizations in the (lazy) reduction machine, saving allocations
 
 - [ ] :exclamation: [PR#117](https://github.com/coq/coq/pull/117):
   iota split into iota0+phi+psi and ML API cleanup for reduction
@@ -367,7 +358,7 @@ iterative deepening, limited search, ... (M. Sozeau)
 
   What changed? Postponed to June 1st.
 
-- [ ] [PR#164](https://github.com/coq/coq/pull/164): A few tactics for
+- [x] [PR#164](https://github.com/coq/coq/pull/164): A few tactics for
    8.6 (H. Herbelin)
 
    Decision:
@@ -394,16 +385,6 @@ iterative deepening, limited search, ... (M. Sozeau)
    goal, removing arrows.
 
   Decision: put a warning at least on Hint Externs, maybe fix it.
-
-- [ ] :exclamation: :question: Fix semantics of pattern-matching in
-   Ltac (non-linear patterns, difference between hyps and goal and
-   hyps) (M. Sozeau)
-
-  Idea: use a warning for using conversion instead of syntactic checks
-   and output a warning about deprecation.
-  No problem a priori.
-  Decision: if we have time to evaluate before June 15th.
-  Postponed to 8.7.
 
 - [x] :exclamation: Remove some atomic tactics from the AST. This
   breaks "intro" in strict mode (i.e. Ltac := ...) by forcing its
