@@ -30,3 +30,25 @@ modifications that are going to be part of Coq 8.7.
   No problem a priori.
   Decision: if we have time to evaluate before June 15th.
   Postponed to 8.7.
+
+- [ ] :exclamation: Remove the double induction tactic which was deprecated.
+
+- [ ] :exclamation: :question: [PR#140](https://github.com/coq/coq/pull/140): Iff as a proper
+  connective (H. Herbelin)
+
+  Problem of coercions. Compatibility issue..
+  - Evaluate on contribs.
+  Decision: wait on.
+
+# Vernacular
+
+- [ ] [PR#85](https://github.com/coq/coq/pull/85) Printing in cbv/cbn
+ - Is it subsumed by other features?
+ - Can it be made into a plugin?
+ Decision:
+   - change to implement only the hooks part by 8.6, as this can be
+     generalized. Ask Thomas about the changes needed and update.
+   - Ask for users to tell us and advertise it.
+
+ Should provide a hook for a print function (and maybe more general, as it may
+ be used for profiling).
