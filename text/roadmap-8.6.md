@@ -41,7 +41,7 @@ w.r.t. 8.5
 
   Decision: deprecate.
 
-- [ ] Windows SDK built from sources using Michael's script (Enrico).
+- [x] Windows SDK built from sources using Michael's script (Enrico).
 
 - [x]  [PR#173](https://github.com/coq/coq/pull/173):
   Error resilient mode for STM (E. Tassi)
