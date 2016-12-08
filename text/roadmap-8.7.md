@@ -52,3 +52,8 @@ modifications that are going to be part of Coq 8.7.
 
  Should provide a hook for a print function (and maybe more general, as it may
  be used for profiling).
+ 
+# Tools
+ 
+- [ ] Coq_makefile reimplementation
+ 
