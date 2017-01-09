@@ -1,59 +1,101 @@
-The purpose of this page is to summarize the different new features and
-modifications that are going to be part of Coq 8.7.
+# Schedule
 
-# General Implementation
+## Towards a 6-month cycle
 
-- [ ] Bytes/String PR by E. Arias. WIP, proposal is to split it in smaller
-      chunks and do renamings.
+During the Working Group on December 15, 2016, the Coq development team
+decided that the release cycle would be 10-month long for Coq 8.7, and
+6-month long for subsequent versions. To bootstrap this sorter release cycle,
+only fully ready features will be merged to 8.7, postponing others to 8.8.
 
-      [EGJA] This is postponed until 4.02 is the default compiler.
+## 8.7 schedule
 
-- [ ] :question: [PR#185](https://github.com/coq/coq/pull/185)
-   Remove unused printing infrastructure and duplication (E. J. Gallego)
+- Feature freeze: June 1st, 2017.
+- First beta version expected around June 15th, 2017.
+- Final version expected around October 15th, 2017.
 
-  [EJGA] This is up to PMP/Enrico, I did this PR because the stuff is
-  abandoned and it was indeed confusing people looking at it. It also
-  saves 24K of bytecode and removes a duplicate code path.
+# Changes already decided
 
-# Kernel
+## A more regular scheme for version numbers
 
-- [ ] Optimizations in the (lazy) reduction machine, saving allocations
+Minor versions will now be numbered `X.Y.Z` instead of `X.YplZ`. The semantics
+of minor versions (in terms of compatibility constraints and integration
+policies) is left unchanged.
 
-# Tactics
+## OCaml version
 
-- [ ] :exclamation: :question: Fix semantics of pattern-matching in
-   Ltac (non-linear patterns, difference between hyps and goal and
-   hyps) (M. Sozeau)
+Coq 8.7 will require OCaml version 4.02.1.
 
-  Idea: use a warning for using conversion instead of syntactic checks
-   and output a warning about deprecation.
-  No problem a priori.
-  Decision: if we have time to evaluate before June 15th.
-  Postponed to 8.7.
+# Preliminary roadmap
 
-- [ ] :exclamation: Remove the double induction tactic which was deprecated.
+This is a summary of the new features being worked on. No integration decision
+has been taken yet.
 
-- [ ] :exclamation: :question: [PR#140](https://github.com/coq/coq/pull/140): Iff as a proper
-  connective (H. Herbelin)
+## New features
 
-  Problem of coercions. Compatibility issue..
-  - Evaluate on contribs.
-  Decision: wait on.
+- [ ] Ltac 2 (Pierre-Marie Pédrot)
+A new version of the tactic language, with types and precise semantics.
 
-# Vernacular
+[CEP](https://github.com/coq/ceps/blob/master/text/008-typed-ltac.md)
+[Branch](https://github.com/ppedrot/coq/tree/ltac2)
 
-- [ ] [PR#85](https://github.com/coq/coq/pull/85) Printing in cbv/cbn
- - Is it subsumed by other features?
- - Can it be made into a plugin?
- Decision:
-   - change to implement only the hooks part by 8.6, as this can be
-     generalized. Ask Thomas about the changes needed and update.
-   - Ask for users to tell us and advertise it.
+- [ ] PPX (Pierre-Marie Pédrot)
+A new implementation of extension macros (e.g. for plugins), not relying
+on CamlpX.
 
- Should provide a hook for a print function (and maybe more general, as it may
- be used for profiling).
- 
-# Tools
- 
-- [ ] Coq_makefile reimplementation
- 
+[Branch](https://github.com/ppedrot/coq/tree/ppx-test)
+
+- [ ] Unified unifications (Matthieu Sozeau)
+Use a single unification algorithm for tactics and type checking (getting
+rid of unification.ml in favor of evarconv). Also removes the need for `Meta`s
+(an old construct for existential variables, subsumed by `Evar`s).
+
+[Branch](https://github.com/mattam82/coq/tree/unifall)
+
+
+- [ ] Induction-recursion / induction-induction (Matthieu Sozeau)
+Simultaneous definition of a type and a function on that type / of a type and
+a family of types.
+
+[Branch](https://github.com/mattam82/coq/tree/IR)
+
+- [ ] Deriving
+
+- [ ] Tactic improvements (Hugo Herbelin)
+
+- [ ] Attributes
+A new way to declare modifiers for vernacular commands.
+
+- [ ] Native integers and arrays (Maxime Dénès, Benjamin Grégoire)
+Primitive machine integers and (persistent) arrays for efficient computations.
+
+## Implementation cleanups
+
+- [ ] Econstr (Pierre-Marie Pédrot)
+Static typing ensuring evar insensitivy.
+
+[CEP](https://github.com/coq/ceps/blob/master/text/010-econstr.md)
+[Branch](https://github.com/ppedrot/coq/tree/econstr)
+
+- [ ] Merge Function / Program Fixpoint / Equations (Matthieu Sozeau)
+
+- [ ] Removing cooking from the kernel (Maxime Dénès, Enrico Tassi,
+Hugo Herbelin)
+
+- [ ] Reals library (Guillaume Melquiond)
+
+- [ ] Printing infrastructure (Emilio J. Gallego)
+
+- [ ] `coq_makefile` reimplementation (Enrico Tassi)
+A new implementation of `coq_makefile` based on templates instead of `print`.
+
+[Branch](https://github.com/gares/coq/tree/feature/coq_makefile2)
+
+## Deprecation
+
+- [ ] `-notop`
+- [ ] `-compat` flags (we support 2 versions back)
+- [ ] `Function`
+If merged with `Program Fixpoint` and `Equations`, only one should remain
+non deprecated.
+- [ ] Review compatibility options
+
