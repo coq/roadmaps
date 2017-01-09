@@ -27,7 +27,7 @@ Coq 8.7 will require OCaml version 4.02.1.
 
 # Preliminary roadmap
 
-This is a summary of the new features being worked on. No integration decision
+This is a summary of the work in progress. No integration decision
 has been taken yet.
 
 ## New features
