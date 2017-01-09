@@ -33,69 +33,79 @@ has been taken yet.
 ## New features
 
 - [ ] Ltac 2 (Pierre-Marie Pédrot)
-A new version of the tactic language, with types and precise semantics.
 
-[CEP](https://github.com/coq/ceps/blob/master/text/008-typed-ltac.md)
-[Branch](https://github.com/ppedrot/coq/tree/ltac2)
+  A new version of the tactic language, with types and precise semantics.
+
+  [CEP](https://github.com/coq/ceps/blob/master/text/008-typed-ltac.md)
+  [Branch](https://github.com/ppedrot/coq/tree/ltac2)
 
 - [ ] PPX (Pierre-Marie Pédrot)
-A new implementation of extension macros (e.g. for plugins), not relying
-on CamlpX.
 
-[Branch](https://github.com/ppedrot/coq/tree/ppx-test)
+  A new implementation of extension macros (e.g. for plugins), not relying
+  on CamlpX.
+
+  [Branch](https://github.com/ppedrot/coq/tree/ppx-test)
 
 - [ ] Unified unifications (Matthieu Sozeau)
-Use a single unification algorithm for tactics and type checking (getting
-rid of unification.ml in favor of evarconv). Also removes the need for `Meta`s
-(an old construct for existential variables, subsumed by `Evar`s).
 
-[Branch](https://github.com/mattam82/coq/tree/unifall)
+  Use a single unification algorithm for tactics and type checking (getting
+  rid of unification.ml in favor of evarconv). Also removes the need for `Meta`s
+  (an old construct for existential variables, subsumed by `Evar`s).
+
+  [Branch](https://github.com/mattam82/coq/tree/unifall)
 
 
 - [ ] Induction-recursion / induction-induction (Matthieu Sozeau)
-Simultaneous definition of a type and a function on that type / of a type and
-a family of types.
 
-[Branch](https://github.com/mattam82/coq/tree/IR)
+  Simultaneous definition of a type and a function on that type / of a type and
+  a family of types.
+
+  [Branch](https://github.com/mattam82/coq/tree/IR)
 
 - [ ] Deriving
 
 - [ ] Tactic improvements (Hugo Herbelin)
 
 - [ ] Attributes
-A new way to declare modifiers for vernacular commands.
+
+  A new way to declare modifiers for vernacular commands.
 
 - [ ] Native integers and arrays (Maxime Dénès, Benjamin Grégoire)
-Primitive machine integers and (persistent) arrays for efficient computations.
+
+  Primitive machine integers and (persistent) arrays for efficient computations.
 
 ## Implementation cleanups
 
 - [ ] Econstr (Pierre-Marie Pédrot)
-Static typing ensuring evar insensitivy.
 
-[CEP](https://github.com/coq/ceps/blob/master/text/010-econstr.md)
-[Branch](https://github.com/ppedrot/coq/tree/econstr)
+  Static typing ensuring evar insensitivy.
+
+  [CEP](https://github.com/coq/ceps/blob/master/text/010-econstr.md)
+  [Branch](https://github.com/ppedrot/coq/tree/econstr)
 
 - [ ] Merge Function / Program Fixpoint / Equations (Matthieu Sozeau)
 
 - [ ] Removing cooking from the kernel (Maxime Dénès, Enrico Tassi,
-Hugo Herbelin)
+  Hugo Herbelin)
 
 - [ ] Reals library (Guillaume Melquiond)
 
 - [ ] Printing infrastructure (Emilio J. Gallego)
 
 - [ ] `coq_makefile` reimplementation (Enrico Tassi)
-A new implementation of `coq_makefile` based on templates instead of `print`.
 
-[Branch](https://github.com/gares/coq/tree/feature/coq_makefile2)
+  A new implementation of `coq_makefile` based on templates instead of `print`.
+
+  [Branch](https://github.com/gares/coq/tree/feature/coq_makefile2)
 
 ## Deprecation
 
 - [ ] `-notop`
 - [ ] `-compat` flags (we support 2 versions back)
 - [ ] `Function`
-If merged with `Program Fixpoint` and `Equations`, only one should remain
-non deprecated.
+
+  If merged with `Program Fixpoint` and `Equations`, only one should remain
+  non deprecated.
+  
 - [ ] Review compatibility options
 
