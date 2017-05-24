@@ -46,14 +46,6 @@ has been taken yet.
 
   [Branch](https://github.com/ppedrot/coq/tree/ppx-test)
 
-- [ ] Unified unifications (Matthieu Sozeau)
-
-  Use a single unification algorithm for tactics and type checking (getting
-  rid of unification.ml in favor of evarconv). Also removes the need for `Meta`s
-  (an old construct for existential variables, subsumed by `Evar`s).
-
-  [Branch](https://github.com/mattam82/coq/tree/unifall)
-
 - [ ] Induction-recursion / induction-induction (Matthieu Sozeau)
 
   Simultaneous definition of a type and a function on that type / of a type and
@@ -68,10 +60,6 @@ has been taken yet.
 - [ ] Attributes
 
   A new way to declare modifiers for vernacular commands.
-
-- [ ] Native integers and arrays (Maxime Dénès, Benjamin Grégoire)
-
-  Primitive machine integers and (persistent) arrays for efficient computations.
 
 - [ ] Flambda support (Emilio J. Gallego)
 
