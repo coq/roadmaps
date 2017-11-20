@@ -49,6 +49,8 @@
 
 - [ ] SSReflect intro patterns (Enrico Tassi, Maxime Dénès)
 
+  Status: will start work on January 22nd
+
 - [ ] Porting `eauto` to `typeclasses eauto` code (Théo Zimmermann)
 
 - [ ] Universe naming and context API
@@ -73,7 +75,11 @@
 
 - [ ] Integration of the API for Elpi (Enrico Tassi)
 
+  Status: will start work on January 15th
+
 - [ ] Port plugins to `coq_makefile` (Enrico Tassi, Maxime Dénès)
+
+  Status: will start work on January 15th
 
 ## Documentation
 
