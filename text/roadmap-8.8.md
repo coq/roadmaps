@@ -17,6 +17,10 @@
 - [ ] Native integers and arrays (Maxime Dénès, Benjamin Grégoire)
 
   Primitive machine integers and (persistent) arrays for efficient computations.
+  
+  [Branch](https://github.com/maximedenes/coq/tree/vm-clambda)
+  
+  Status: rebase/fixes in progress until December 4th, then more cleaning and pluging Coqprime and Bignums on it.
 
 - [ ] Induction-recursion / induction-induction (Matthieu Sozeau)
 
@@ -44,6 +48,8 @@
 - [ ] Custom entries / tables for notations (Hugo Herbelin)
 
 - [ ] Attributes (Maxime Dénès, Vincent Laporte)
+
+  Status: preliminary work ongoing (locality, vernac control), real work starting Nov 27th. Will update Arnaud's CEP.
 
 ## Implementation cleanups
 
