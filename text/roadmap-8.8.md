@@ -53,7 +53,7 @@
 
 - [ ] Attributes (Maxime Dénès, Vincent Laporte)
 
-  Status: preliminary work ongoing (locality, vernac control), real work starting Nov 27th. Will update Arnaud's CEP.
+  Status: preliminary work ongoing (locality, vernac control), real work starting Dec 4th. Will update Arnaud's CEP.
 
 ## Implementation cleanups
 
