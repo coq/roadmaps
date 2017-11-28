@@ -33,7 +33,7 @@
 
 - [ ] `2: { ... }` (Théo Zimmermann)
 
-  Status: will start working on it after the 8.7.1 release.
+  Status: will start working on it after the 8.7.1 release (Dec 15th).
 
 - [ ] Significant indentation mode (Théo Zimmermann)
 
@@ -63,7 +63,7 @@
 
 - [ ] Porting `eauto` to `typeclasses eauto` code (Théo Zimmermann)
 
-  Status: will start working on it again after the 8.7.1 release.
+  Status: will start working on it again after the 8.7.1 release (Dec 15th).
   
   [PR](https://github.com/coq/coq/pull/721)
 
