@@ -33,7 +33,11 @@
 
 - [ ] `2: { ... }` (Théo Zimmermann)
 
+  Status: will start working on it after the 8.7.1 release.
+
 - [ ] Significant indentation mode (Théo Zimmermann)
+
+  Status: uncertain (lower priority than the point above and the one below).
 
 - [ ] `Lemma :=` (Théo Zimmermann)
 
@@ -58,6 +62,10 @@
   Status: will start work on January 22nd
 
 - [ ] Porting `eauto` to `typeclasses eauto` code (Théo Zimmermann)
+
+  Status: will start working on it again after the 8.7.1 release.
+  
+  [PR](https://github.com/coq/coq/pull/721)
 
 - [ ] Universe naming and context API
 
