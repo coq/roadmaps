@@ -93,11 +93,11 @@
   as bound variables in polymorphic universe contexts). Cleanup of the API for
   declaring mono/poly constants and inductives etc..
   
- Status: [PR 890](https://github.com/coq/coq/pull/890) implements proper global
- universe naming, @ppedrot has patches to fix bound (polymorphic) universe naming,
- PR incoming. The cumulative inductive PR already started cleaning the declaration
- API for constants and inductives, more cleanups and bugfixes related to this 
- are being done by @SkySimmer, @ppedrot and @mattam82 as well.
+  Status: [PR 890](https://github.com/coq/coq/pull/890) implements proper global
+  universe naming, @ppedrot has patches to fix bound (polymorphic) universe naming,
+  PR incoming. The cumulative inductive PR already started cleaning the declaration
+  API for constants and inductives, more cleanups and bugfixes related to this 
+  are being done by @SkySimmer, @ppedrot and @mattam82 as well.
 
 - [ ] Review mod\_subst (Pierre Letouzey)
 
