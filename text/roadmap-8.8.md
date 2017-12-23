@@ -1,4 +1,8 @@
-# Schedule
+# Estimated schedule
+
+- Feature freeze on March 8th, 2018 (pull requests must be fully reviewed by this date, no exception will be made)
+- 8.8+beta1 release on March 15th
+- 8.8.0 release on April 16th (the 15th is a Sunday)
 
 # OCaml version
 
