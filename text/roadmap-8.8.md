@@ -31,19 +31,8 @@
   
   [Branch](https://github.com/maximedenes/coq/tree/vm-clambda)
   
-  Status: rebase/fixes in progress until December 4th, then more cleaning and pluging Coqprime and Bignums on it.
-
-- [ ] Induction-recursion / induction-induction (Matthieu Sozeau)
-
-  Simultaneous definition of a type and a function on that type / of a type and
-  a family of types.
-
-  [Branch](https://github.com/mattam82/coq/tree/IR)
-  
-  Status: this is really useful, with @cmangin we think we have good theoretical justification
-  for adapting the guard checking to it, but the implementation in pretyping is a bit hackish.
-  Need to evaluate what's needed to make it mergeable and set a deadline accordingly.
-  
+  Status: More cleaning and pluging Coqprime and Bignums on the data structures.
+ 
 - [ ] Deriving binding (Matthieu Sozeau)
 
   This adds an official [Derive] command to Coq, on which plugins can plug their own
@@ -77,8 +66,8 @@
 
 - [ ] Attributes (Maxime Dénès, Vincent Laporte)
 
-  Status: preliminary work ongoing (locality, vernac control), real work starting Dec 4th. Will update Arnaud's CEP.
-
+  Status: implementation work started, cf Vincent's presentation at the WG
+  
 ## Implementation cleanups
 
 - [ ] SSReflect intro patterns (Enrico Tassi, Maxime Dénès)
@@ -105,11 +94,6 @@
 
 - [ ] Review mod\_subst (Pierre Letouzey)
 
-- [ ] Porting functional induction to Equations (Thierry Martinez, Matthieu Sozeau)
-
-  Status: still at a design and evaluation stage but we have a good idea how it 
-  should go. Will report at the next WG and maybe move to 8.9 at this time.
-
 - [ ] Separation of section and goal contexts (Hugo Herbelin)
 
 - [ ] Primitive projections API (Matthieu Sozeau)
@@ -120,7 +104,7 @@
   
   Status: no time to look at this now. Help wanted. 
 
-- [ ] Remove state from futures (Emilio J. Gallego)
+- [X] Remove state from futures (Emilio J. Gallego)
 
 ## Deprecation
 
