@@ -13,3 +13,5 @@
 
   Status: still at a design and evaluation stage but we have a good idea how it 
   should go. Will report at the next WG and maybe move to 8.9 at this time.
+
+- [ ] Port plugins to `coq_makefile` (Enrico Tassi, Maxime Dénès)
