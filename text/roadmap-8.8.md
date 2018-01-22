@@ -6,7 +6,7 @@
 
 # OCaml version
 
-# Preliminary roadmap
+# Roadmap
 
 ## New features
 
@@ -42,15 +42,17 @@
   third-parties (e.g. QuickChick devs) about the API we need to agree on for that by the 
   end of december.
   
-- [ ] `2: { ... }` (Théo Zimmermann)
+- [X] `2: { ... }` (Théo Zimmermann)
 
-  Status: will start working on it after the 8.7.1 release (Dec 15th).
+  [PR](https://github.com/coq/coq/pull/6551)
 
 - [ ] Significant indentation mode (Théo Zimmermann)
 
   Status: uncertain (lower priority than the point above and the one below).
 
 - [ ] `Lemma :=` (Théo Zimmermann)
+
+  Status: Work started
 
 - [ ] Prolog cuts in `eauto` (Matthieu Sozeau, Cyril Cohen)
 
@@ -64,7 +66,7 @@
 
 - [ ] Custom entries / tables for notations (Hugo Herbelin)
 
-- [ ] Attributes (Maxime Dénès, Vincent Laporte)
+- [ ] Attributes (Vincent Laporte, Maxime Dénès)
 
   Status: implementation work started, cf Vincent's presentation at the WG
   
@@ -72,7 +74,7 @@
 
 - [ ] SSReflect intro patterns (Enrico Tassi, Maxime Dénès)
 
-  Status: will start work on January 22nd
+  Status: Enrico started to work on it
 
 - [ ] Porting `eauto` to `typeclasses eauto` code (Théo Zimmermann)
 
@@ -114,19 +116,11 @@
 
 - [ ] Locations for `Proof using` error messages (Yves Bertot)
 
-- [ ] Integration of the API for Elpi (Enrico Tassi)
-
-  Status: will start work on January 15th
-
-- [ ] Port plugins to `coq_makefile` (Enrico Tassi, Maxime Dénès)
-
-  Status: will start work on January 15th
-
 ## Documentation
 
 - [ ] Porting to Sphinx
 
-Status: WIP, see ??
+Status: WIP, see https://docs.google.com/document/d/1Yo7dV4OI0AY9Di-lsEQ3UTmn5ygGLlhxjym7cTCMCWU/edit
 
 - [ ] Improve SSReflect chapter (Assia Mahboubi)
 
