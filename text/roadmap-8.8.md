@@ -60,8 +60,6 @@
 
 - [ ] Numeral notations (Pierre Letouzey, Daniel de Rauglaudre)
 
-- [ ] Small inversions (Thierry Martinez, Hugo Herbelin)
-
 - [ ] Warning on generated names (Hugo Herbelin)
 
 - [ ] Custom entries / tables for notations (Hugo Herbelin)
