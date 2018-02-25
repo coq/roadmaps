@@ -16,6 +16,8 @@
 
 - [ ] Port plugins to `coq_makefile` (Enrico Tassi, Maxime Dénès)
 
+- [ ] Small inversions (Thierry Martinez, Hugo Herbelin)
+
 - [ ] VM and native_compute as two backends for the same compiler (Maxime Dénès)
   - [ ] Unify the representation of values
     - [ ] Evar support for the VM
