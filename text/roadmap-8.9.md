@@ -39,6 +39,10 @@
 
   Status: uncertain (lower priority than the point above and the one below).
 
+- [ ] `Lemma :=` (Théo Zimmermann)
+
+  Status: Work started
+
 - [ ] VM and native_compute as two backends for the same compiler (Maxime Dénès)
   - [ ] Unify the representation of values
     - [ ] Evar support for the VM
