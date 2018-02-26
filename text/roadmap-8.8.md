@@ -37,10 +37,6 @@
 
   [PR](https://github.com/coq/coq/pull/6551)
 
-- [ ] `Lemma :=` (Théo Zimmermann)
-
-  Status: Work started
-
 - [ ] Prolog cuts in `eauto` (Matthieu Sozeau, Cyril Cohen)
 
   Status: this is implemented as [PR 6285](https://github.com/coq/coq/pull/6285)
