@@ -32,23 +32,10 @@
   [Branch](https://github.com/maximedenes/coq/tree/vm-clambda)
   
   Status: More cleaning and pluging Coqprime and Bignums on the data structures.
- 
-- [ ] Deriving binding (Matthieu Sozeau)
-
-  This adds an official [Derive] command to Coq, on which plugins can plug their own
-  derivers (implemented as they like, in ML, using tactics, ...)
-  
-  Status: This is quite trivial, I'll send an email to coqdev and potentially interested
-  third-parties (e.g. QuickChick devs) about the API we need to agree on for that by the 
-  end of december.
   
 - [X] `2: { ... }` (Théo Zimmermann)
 
   [PR](https://github.com/coq/coq/pull/6551)
-
-- [ ] Significant indentation mode (Théo Zimmermann)
-
-  Status: uncertain (lower priority than the point above and the one below).
 
 - [ ] `Lemma :=` (Théo Zimmermann)
 
@@ -95,14 +82,6 @@
 - [ ] Review mod\_subst (Pierre Letouzey)
 
 - [ ] Separation of section and goal contexts (Hugo Herbelin)
-
-- [ ] Primitive projections API (Matthieu Sozeau)
-
-  The idea is to do a pass of cleanup on the declaration of prim projs and their
-  representation in the kernel, to see if we can move the compatibility-related
-  hacks higher in the system.
-  
-  Status: no time to look at this now. Help wanted. 
 
 - [X] Remove state from futures (Emilio J. Gallego)
 
